@@ -19,6 +19,9 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class HealthController extends AbstractController
 {
+    /** @var LoggerInterface $logger */
+    private $logger;
+
     /**
      * Class Constructor.
      */

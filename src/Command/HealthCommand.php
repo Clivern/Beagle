@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace App\Command;
 
+use Psr\Log\LoggerInterface;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -19,6 +20,17 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 class HealthCommand extends Command
 {
     protected static $defaultName = 'app:health';
+
+    /** @var LoggerInterface $logger */
+    private $logger;
+
+    /**
+     * Class Constructor.
+     */
+    public function __construct(LoggerInterface $logger)
+    {
+        $this->logger = $logger;
+    }
 
     protected function configure()
     {

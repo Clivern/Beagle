@@ -22,6 +22,9 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class HomeController extends AbstractController
 {
+    /** @var LoggerInterface $logger */
+    private $logger;
+
     /**
      * Class Constructor.
      */
