@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * This file is part of the Turtle project.
+ * (c) Clivern <hello@clivern.com>
+ */
+
 namespace App\Event\Listener;
 
 use App\Annotation\Model as ModelAnnotation;
@@ -25,7 +30,7 @@ class ModelAnnotationListener
         }
 
         $controllers = $event->getController();
-        if (!is_array($controllers)) {
+        if (!\is_array($controllers)) {
             return;
         }
 
