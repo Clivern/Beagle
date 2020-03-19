@@ -10,7 +10,7 @@ namespace App\Annotation;
 /**
  * @Annotation
  */
-class Model
+class Before
 {
     /**
      * @var string

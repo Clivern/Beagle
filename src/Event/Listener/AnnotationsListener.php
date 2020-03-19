@@ -7,7 +7,7 @@
 
 namespace App\Event\Listener;
 
-use App\Annotation\Model as ModelAnnotation;
+use App\Annotation\Before;
 use Doctrine\Common\Annotations\Reader;
 use Psr\Log\LoggerInterface;
 use ReflectionClass;
@@ -20,6 +20,7 @@ use Symfony\Component\HttpKernel\Event\ControllerEvent;
  */
 class AnnotationsListener
 {
+    /** @var Reader $annotationReader */
     private $annotationReader;
 
     /** @var LoggerInterface $logger */
@@ -61,9 +62,9 @@ class AnnotationsListener
 
     private function handleClassAnnotation(ReflectionClass $controller, ControllerEvent $event): void
     {
-        $annotation = $this->annotationReader->getClassAnnotation($controller, ModelAnnotation::class);
+        $annotation = $this->annotationReader->getClassAnnotation($controller, Before::class);
 
-        if ($annotation instanceof ModelAnnotation) {
+        if ($annotation instanceof Before) {
             print_r($annotation);
             var_dump($event->getRequest()->getMethod());
         }
@@ -72,9 +73,9 @@ class AnnotationsListener
     private function handleMethodAnnotation(ReflectionClass $controller, string $method, ControllerEvent $event): void
     {
         $method = $controller->getMethod($method);
-        $annotation = $this->annotationReader->getMethodAnnotation($method, ModelAnnotation::class);
+        $annotation = $this->annotationReader->getMethodAnnotation($method, Before::class);
 
-        if ($annotation instanceof ModelAnnotation) {
+        if ($annotation instanceof Before) {
             print_r($annotation);
             var_dump($event->getRequest()->getMethod());
         }
