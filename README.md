@@ -1,0 +1,43 @@
+<p align="center">
+    <img alt="Turtle Logo" src="https://symfony.com/logos/symfony_black_03.png" width="150" />
+    <h3 align="center">Turtle</h3>
+    <p align="center">Symfony Applications Boilerplate.</p>
+    <p align="center">
+        <a href="https://travis-ci.org/Clivern/Turtle"><img src="https://travis-ci.org/Clivern/Turtle.svg?branch=master"></a>
+        <a href="https://github.com/Clivern/Turtle/releases"><img src="https://img.shields.io/badge/Version-0.0.1-red.svg"></a>
+        <a href="https://github.com/Clivern/Turtle/blob/master/LICENSE"><img src="https://img.shields.io/badge/LICENSE-MIT-orange.svg"></a>
+    </p>
+</p>
+
+## Usage
+
+This project mainly for personal & testing purposes but you can simply fork or use it as github template.
+
+
+## Versioning
+
+For transparency into our release cycle and in striving to maintain backward compatibility, Turtle is maintained under the [Semantic Versioning guidelines](https://semver.org/) and release process is predictable and business-friendly.
+
+See the [Releases section of our GitHub project](https://github.com/clivern/turtle/releases) for changelogs for each release version of Turtle. It contains summaries of the most noteworthy changes made in each release.
+
+
+## Bug tracker
+
+If you have any suggestions, bug reports, or annoyances please report them to our issue tracker at https://github.com/clivern/turtle/issues
+
+
+## Security Issues
+
+If you discover a security vulnerability within Turtle, please send an email to [hello@clivern.com](mailto:hello@clivern.com)
+
+
+## Contributing
+
+We are an open source, community-driven project so please feel free to join us. see the [contributing guidelines](CONTRIBUTING.md) for more details.
+
+
+## License
+
+© 2020, clivern. Released under [MIT License](https://opensource.org/licenses/mit-license.php).
+
+**Turtle** is authored and maintained by [@clivern](http://github.com/clivern).
