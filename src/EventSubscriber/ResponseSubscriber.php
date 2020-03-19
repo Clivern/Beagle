@@ -5,15 +5,13 @@
  * (c) Clivern <hello@clivern.com>
  */
 
-namespace App\Event\Listener;
+namespace App\EventSubscriber;
 
 use Psr\Log\LoggerInterface;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Event\ResponseEvent;
 
-/**
- * Response Event Listener.
- */
-class ResponseListener
+class ResponseSubscriber implements EventSubscriberInterface
 {
     /** @var LoggerInterface $logger */
     private $logger;
@@ -33,5 +31,12 @@ class ResponseListener
             $event->getRequest()->get('_route'),
             $event->getResponse()
         ));
+    }
+
+    public static function getSubscribedEvents()
+    {
+        return [
+            'kernel.response' => 'onKernelResponse',
+        ];
     }
 }

@@ -5,7 +5,7 @@
  * (c) Clivern <hello@clivern.com>
  */
 
-namespace App\Event\Listener;
+namespace App\EventSubscriber;
 
 use App\Annotation\Before;
 use Doctrine\Common\Annotations\Reader;
@@ -13,12 +13,10 @@ use Psr\Log\LoggerInterface;
 use ReflectionClass;
 use ReflectionException;
 use RuntimeException;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Event\ControllerEvent;
 
-/**
- * Annotations Listener.
- */
-class AnnotationsListener
+class AnnotationsSubscriber implements EventSubscriberInterface
 {
     /** @var Reader $annotationReader */
     private $annotationReader;
@@ -32,7 +30,7 @@ class AnnotationsListener
         $this->logger = $logger;
     }
 
-    public function onKernelController(ControllerEvent $event): void
+    public function onKernelController(ControllerEvent $event)
     {
         if (!$event->isMasterRequest()) {
             return;
@@ -44,6 +42,13 @@ class AnnotationsListener
         }
 
         $this->handleAnnotation($controllers, $event);
+    }
+
+    public static function getSubscribedEvents()
+    {
+        return [
+            'kernel.controller' => 'onKernelController',
+        ];
     }
 
     private function handleAnnotation(iterable $controllers, ControllerEvent $event): void

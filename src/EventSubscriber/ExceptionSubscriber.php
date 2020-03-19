@@ -5,15 +5,13 @@
  * (c) Clivern <hello@clivern.com>
  */
 
-namespace App\Event\Listener;
+namespace App\EventSubscriber;
 
 use Psr\Log\LoggerInterface;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Event\ExceptionEvent;
 
-/**
- * Exception Event Listener.
- */
-class ExceptionListener
+class ExceptionSubscriber implements EventSubscriberInterface
 {
     /** @var LoggerInterface $logger */
     private $logger;
@@ -32,5 +30,12 @@ class ExceptionListener
             'Error triggered: %s',
             $event->getThrowable()->getMessage()
         ));
+    }
+
+    public static function getSubscribedEvents()
+    {
+        return [
+            'kernel.exception' => 'onKernelException',
+        ];
     }
 }

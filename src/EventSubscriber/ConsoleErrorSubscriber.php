@@ -5,15 +5,13 @@
  * (c) Clivern <hello@clivern.com>
  */
 
-namespace App\Event\Listener;
+namespace App\EventSubscriber;
 
 use Psr\Log\LoggerInterface;
 use Symfony\Component\Console\Event\ConsoleErrorEvent;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
-/**
- * Console Error Event Listener.
- */
-class ConsoleErrorListener
+class ConsoleErrorSubscriber implements EventSubscriberInterface
 {
     /** @var LoggerInterface $logger */
     private $logger;
@@ -33,5 +31,12 @@ class ConsoleErrorListener
             $event->getError()->getMessage(),
             json_encode($event->getInput()->getArguments())
         ));
+    }
+
+    public static function getSubscribedEvents()
+    {
+        return [
+            'console.error' => 'onConsoleError',
+        ];
     }
 }
