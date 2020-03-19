@@ -32,6 +32,9 @@
             ".php_cs.dist"
         ]
     },
+    "justinrainbow/json-schema": {
+        "version": "5.2.9"
+    },
     "monolog/monolog": {
         "version": "2.0.2"
     },
