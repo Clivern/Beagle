@@ -22,3 +22,5 @@
 ###> app testing ###
 /build
 ###< app testing ###
+
+/.env
