@@ -9,18 +9,26 @@ namespace App\Event\Listener;
 
 use App\Annotation\Model as ModelAnnotation;
 use Doctrine\Common\Annotations\Reader;
+use Psr\Log\LoggerInterface;
 use ReflectionClass;
 use ReflectionException;
 use RuntimeException;
 use Symfony\Component\HttpKernel\Event\ControllerEvent;
 
-class ModelAnnotationListener
+/**
+ * Annotations Listener.
+ */
+class AnnotationsListener
 {
     private $annotationReader;
 
-    public function __construct(Reader $annotationReader)
+    /** @var LoggerInterface $logger */
+    private $logger;
+
+    public function __construct(Reader $annotationReader, LoggerInterface $logger)
     {
         $this->annotationReader = $annotationReader;
+        $this->logger = $logger;
     }
 
     public function onKernelController(ControllerEvent $event): void
