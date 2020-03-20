@@ -4,7 +4,7 @@
     <p align="center">Symfony Applications Boilerplate.</p>
     <p align="center">
         <a href="https://travis-ci.com/Clivern/Turtle"><img src="https://travis-ci.com/Clivern/Turtle.svg?branch=master"></a>
-        <a href="https://github.com/Clivern/Turtle/releases"><img src="https://img.shields.io/badge/Version-0.0.1-red.svg"></a>
+        <a href="https://github.com/Clivern/Turtle/releases"><img src="https://img.shields.io/badge/Version-0.1.0-red.svg"></a>
         <a href="https://github.com/Clivern/Turtle/blob/master/LICENSE"><img src="https://img.shields.io/badge/LICENSE-MIT-orange.svg"></a>
     </p>
 </p>
@@ -13,7 +13,7 @@
 
 This project is mainly for personal & testing purposes but you can simply fork or click `Use this template` button! somewhere on this page.
 
-To Run The App:
+To run the application:
 
 ```zsh
 # Create config file
@@ -26,13 +26,13 @@ $ curl -sS https://get.symfony.com/cli/installer | bash
 $ symfony serve
 ```
 
-To Test:
+To test:
 
 ```zsh
 $ make ci
 ```
 
-To Fix some styles ...etc
+To fix code style issues:
 
 ```zsh
 $ make fix
