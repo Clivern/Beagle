@@ -3,7 +3,7 @@
     <h3 align="center">Turtle</h3>
     <p align="center">Symfony Applications Boilerplate.</p>
     <p align="center">
-        <a href="https://travis-ci.org/Clivern/Turtle"><img src="https://travis-ci.org/Clivern/Turtle.svg?branch=master"></a>
+        <a href="https://travis-ci.com/Clivern/Turtle"><img src="https://travis-ci.com/Clivern/Turtle.svg?branch=master"></a>
         <a href="https://github.com/Clivern/Turtle/releases"><img src="https://img.shields.io/badge/Version-0.0.1-red.svg"></a>
         <a href="https://github.com/Clivern/Turtle/blob/master/LICENSE"><img src="https://img.shields.io/badge/LICENSE-MIT-orange.svg"></a>
     </p>
@@ -11,7 +11,32 @@
 
 ## Usage
 
-This project mainly for personal & testing purposes but you can simply fork or use it as github template.
+This project is mainly for personal & testing purposes but you can simply fork or click `Use this template` button! somewhere on this page.
+
+To Run The App:
+
+```zsh
+# Create config file
+$ cp .env.dist .env
+
+# Install Symfony CMD Tool
+$ curl -sS https://get.symfony.com/cli/installer | bash
+
+# Run It
+$ symfony serve
+```
+
+To Test:
+
+```zsh
+$ make ci
+```
+
+To Fix some styles ...etc
+
+```zsh
+$ make fix
+```
 
 
 ## Versioning
