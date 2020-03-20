@@ -39,6 +39,8 @@ class HomeController extends AbstractController
      */
     public function index(Request $request)
     {
-        return $this->json(['status' => 'ok']);
+        return $this->render('guest/home.html.twig', [
+            'site_title' => 'Turtle',
+        ]);
     }
 }

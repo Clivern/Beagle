@@ -72,8 +72,8 @@ class AnnotationsSubscriber implements EventSubscriberInterface
         $annotation = $this->annotationReader->getClassAnnotation($controller, Before::class);
 
         if ($annotation instanceof Before) {
-            print_r($annotation);
-            var_dump($event->getRequest()->getMethod());
+            // print_r($annotation);
+            // var_dump($event->getRequest()->getMethod());
         }
     }
 
@@ -83,8 +83,8 @@ class AnnotationsSubscriber implements EventSubscriberInterface
         $annotation = $this->annotationReader->getMethodAnnotation($method, Before::class);
 
         if ($annotation instanceof Before) {
-            print_r($annotation);
-            var_dump($event->getRequest()->getMethod());
+            // print_r($annotation);
+            // var_dump($event->getRequest()->getMethod());
         }
     }
 }
