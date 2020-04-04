@@ -13,6 +13,9 @@ use Psr\Log\LoggerInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Event\RequestEvent;
 
+/**
+ * RequestSubscriber Class.
+ */
 class RequestSubscriber implements EventSubscriberInterface
 {
     /** @var LoggerInterface $logger */

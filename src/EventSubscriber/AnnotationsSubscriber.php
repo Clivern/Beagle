@@ -18,6 +18,9 @@ use RuntimeException;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Event\ControllerEvent;
 
+/**
+ * AnnotationsSubscriber Class.
+ */
 class AnnotationsSubscriber implements EventSubscriberInterface
 {
     /** @var Reader $annotationReader */
@@ -26,6 +29,9 @@ class AnnotationsSubscriber implements EventSubscriberInterface
     /** @var LoggerInterface $logger */
     private $logger;
 
+    /**
+     * Class Constructor.
+     */
     public function __construct(Reader $annotationReader, LoggerInterface $logger)
     {
         $this->annotationReader = $annotationReader;

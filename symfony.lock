@@ -1,4 +1,7 @@
 {
+    "brick/math": {
+        "version": "0.8.14"
+    },
     "composer/semver": {
         "version": "1.5.1"
     },
@@ -155,6 +158,12 @@
     },
     "ralouphie/getallheaders": {
         "version": "3.0.3"
+    },
+    "ramsey/collection": {
+        "version": "1.0.1"
+    },
+    "ramsey/uuid": {
+        "version": "4.0.0"
     },
     "sensio/framework-extra-bundle": {
         "version": "5.2",

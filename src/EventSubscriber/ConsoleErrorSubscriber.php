@@ -13,6 +13,9 @@ use Psr\Log\LoggerInterface;
 use Symfony\Component\Console\Event\ConsoleErrorEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
+/**
+ * ConsoleErrorSubscriber Class.
+ */
 class ConsoleErrorSubscriber implements EventSubscriberInterface
 {
     /** @var LoggerInterface $logger */
