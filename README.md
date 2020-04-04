@@ -1,5 +1,5 @@
 <p align="center">
-    <img alt="Turtle Logo" src="https://symfony.com/logos/symfony_black_03.png" width="150" />
+    <img alt="Turtle Logo" src="https://raw.githubusercontent.com/clivern/Turtle/master/public/assets/images/logo.png?v=0.0.2" width="150" />
     <h3 align="center">Turtle</h3>
     <p align="center">Symfony Applications Boilerplate.</p>
     <p align="center">
