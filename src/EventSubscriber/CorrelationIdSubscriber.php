@@ -21,29 +21,30 @@ class CorrelationIdSubscriber
     /** @var RequestStack $requestStack */
     private $requestStack;
 
+    /** @var GenericValidator $validator */
+    private $validator;
+
     /**
      * Class Constructor.
      */
     public function __construct(RequestStack $requestStack)
     {
         $this->requestStack = $requestStack;
+        $this->validator = new GenericValidator();
     }
 
     public function __invoke(array $record)
     {
         $request = $this->requestStack->getCurrentRequest();
-        $Validator = new GenericValidator();
 
         if (!empty($request->headers->get('X-Correlation-ID'))
-            && $Validator->validate($request->headers->get('X-Correlation-ID'))) {
+            && $this->validator->validate($request->headers->get('X-Correlation-ID'))) {
             $record['extra']['CorrelationId'] = $request->headers->get('X-Correlation-ID');
 
             return $record;
         }
 
-        $uuid = Uuid::uuid4()->toString();
-
-        $record['extra']['CorrelationId'] = $uuid;
+        $record['extra']['CorrelationId'] = Uuid::uuid4()->toString();
 
         return $record;
     }
