@@ -1,0 +1,50 @@
+version: '3'
+services:
+  data:
+    container_name: turtle_data
+    build: ./docker/data
+    volumes:
+      - .:/www
+    command: /var/local/entrypoint.sh
+
+  db:
+    container_name: turtle_mysql
+    build: ./docker/mysql
+    ports:
+      - "3309:3309"
+    volumes:
+      - .docker_data/mysql-data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: homestead
+      MYSQL_USER: homestead
+      MYSQL_PASSWORD: secret
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+  php:
+    container_name: turtle_php
+    build: ./docker/php
+    volumes_from:
+      - data
+    links:
+      - db
+    environment:
+      CACHE_DIR: /www/var/cache
+      LOG_DIR: /www/var/logs
+      SESSION_DIR: /www/var/sessions
+      MYSQL_PASSWORD: secret
+      MYSQL_DATABASE: homestead
+      MYSQL_USER: homestead
+      MYSQL_HOST: turtle_mysql
+    command: /var/local/entrypoint.sh
+
+  nginx:
+    container_name: turtle_nginx
+    build:
+      context: ./docker/nginx
+    ports:
+      - "8001:80"
+    links:
+      - php
+    volumes_from:
+      - php
+      - data

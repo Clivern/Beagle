@@ -114,6 +114,9 @@
     "justinrainbow/json-schema": {
         "version": "5.2.9"
     },
+    "laravel/homestead": {
+        "version": "v10.7.0"
+    },
     "monolog/monolog": {
         "version": "2.0.2"
     },
