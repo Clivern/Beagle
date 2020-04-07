@@ -31,11 +31,20 @@ class ResponseSubscriber implements EventSubscriberInterface
 
     public function onKernelResponse(ResponseEvent $event)
     {
-        $this->logger->info(sprintf(
-            'Outgoing Response: %s %s',
-            $event->getRequest()->get('_route'),
-            $event->getResponse()
-        ));
+        if ('application/json' === $event->getResponse()->headers->get('content-type', '')) {
+            $this->logger->info(sprintf(
+                'Outgoing response with status code %s: %s %s',
+                $event->getResponse()->getStatusCode(),
+                $event->getRequest()->get('_route'),
+                $event->getResponse()
+            ));
+        } else {
+            $this->logger->info(sprintf(
+                'Outgoing response with status code %s: %s <html>...',
+                $event->getResponse()->getStatusCode(),
+                $event->getRequest()->get('_route')
+            ));
+        }
     }
 
     public static function getSubscribedEvents()
