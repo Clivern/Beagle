@@ -75,8 +75,11 @@ class ControllerArgumentSubscriber implements EventSubscriberInterface
         $this->handleMethodAnnotation($controller, $method, $event);
     }
 
-    private function handleMethodAnnotation(ReflectionClass $controller, string $method, ControllerArgumentsEvent $event): void
-    {
+    private function handleMethodAnnotation(
+        ReflectionClass $controller,
+        string $method,
+        ControllerArgumentsEvent $event
+    ): void {
         $method = $controller->getMethod($method);
 
         $annotations = $this->annotationReader->getMethodAnnotations($method);
