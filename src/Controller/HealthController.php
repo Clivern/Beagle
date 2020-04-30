@@ -38,11 +38,14 @@ class HealthController extends AbstractController
      * @Response(type="json")
      *
      * @param mixed $status
+     * @param mixed $extras
      */
-    public function index(Request $request, $status = 'ok')
+    public function index(Request $request, $extras = [])
     {
         $this->logger->info('Application is up!');
 
-        return $this->json(['status' => $status]);
+        return $this->json([
+            'status' => (!empty($extras['status'])) ? $extras['status'] : 'OK',
+        ]);
     }
 }

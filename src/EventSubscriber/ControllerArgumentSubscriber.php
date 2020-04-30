@@ -86,7 +86,9 @@ class ControllerArgumentSubscriber implements EventSubscriberInterface
 
         $arguments = $event->getArguments();
 
-        $event->setArguments([$arguments[0], 'not_ok']);
+        // Override last argument extras
+        $arguments[\count($arguments) - 1] = ['status' => 'NOT_OK'];
+        $event->setArguments($arguments);
 
         $namedArguments = $event->getRequest()->attributes->all();
 

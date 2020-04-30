@@ -67,11 +67,11 @@ lint-php:
 
 
 phpcs:
-	vendor/bin/phpcs
+	./vendor/bin/phpcs
 
 
 php-cs:
-	vendor/bin/php-cs-fixer fix --diff --dry-run -v
+	./vendor/bin/php-cs-fixer fix --diff --dry-run -v
 
 
 ## coverage: Get Coverage Report
