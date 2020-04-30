@@ -12,6 +12,7 @@ namespace App\EventSubscriber;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Event\ResponseEvent;
+use Symfony\Component\HttpKernel\KernelEvents;
 
 /**
  * ResponseSubscriber Class.
@@ -50,7 +51,7 @@ class ResponseSubscriber implements EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return [
-            'kernel.response' => 'onKernelResponse',
+            KernelEvents::RESPONSE => 'onKernelResponse',
         ];
     }
 }

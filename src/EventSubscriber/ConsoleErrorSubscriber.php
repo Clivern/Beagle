@@ -10,6 +10,7 @@ declare(strict_types=1);
 namespace App\EventSubscriber;
 
 use Psr\Log\LoggerInterface;
+use Symfony\Component\Console\ConsoleEvents;
 use Symfony\Component\Console\Event\ConsoleErrorEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
@@ -41,7 +42,7 @@ class ConsoleErrorSubscriber implements EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return [
-            'console.error' => 'onConsoleError',
+            ConsoleEvents::ERROR => 'onConsoleError',
         ];
     }
 }

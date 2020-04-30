@@ -9,6 +9,8 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Annotation\Before;
+use App\Annotation\Controller\Response;
 use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -32,11 +34,15 @@ class HealthController extends AbstractController
 
     /**
      * @Route("_health", name="app.health")
+     * @Before(namespace="namespace2", version=2, types={"json","xml"})
+     * @Response(type="json")
+     *
+     * @param mixed $status
      */
-    public function index(Request $request)
+    public function index(Request $request, $status = 'ok')
     {
         $this->logger->info('Application is up!');
 
-        return $this->json(['status' => 'ok']);
+        return $this->json(['status' => $status]);
     }
 }

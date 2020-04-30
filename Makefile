@@ -1,5 +1,6 @@
 COMPOSER ?= composer
 PHPUNIT_OPTS =
+SYMFONY = symfony
 
 
 help: Makefile
@@ -25,11 +26,10 @@ cc:
 clear: cc
 	rm -rf var/logs/*
 
-fix:
-	./vendor/bin/php-cs-fixer fix
 
 fix-diff:
 	./vendor/bin/php-cs-fixer fix --diff --dry-run -v
+
 
 test: cc composer
 	bin/phpunit -c . $(PHPUNIT_OPTS) --log-junit build/phpunit.xml
@@ -74,13 +74,28 @@ php-cs:
 	vendor/bin/php-cs-fixer fix --diff --dry-run -v
 
 
+## coverage: Get Coverage Report
 coverage: cc composer
+	@echo "\n==> Get Coverage Report:"
 	mkdir -p build/coverage
 	bin/phpunit  --log-junit build/phpunit.xml
 
 
+## fix: Fix Style Issues
+fix:
+	@echo "\n==> Fix Style Issues:"
+	./vendor/bin/php-cs-fixer fix
+
+
+## ci: Run CI Checks
 ci: clear composer lint test
 	@echo "All quality checks passed"
+
+
+## run: Run Turtle
+run:
+	@echo "\n==> Run Turtle:"
+	$(SYMFONY) serve
 
 
 .PHONY: help

@@ -10,18 +10,20 @@ declare(strict_types=1);
 namespace App\EventSubscriber;
 
 use App\Annotation\Before;
+use App\Annotation\Controller\Response;
 use Doctrine\Common\Annotations\Reader;
 use Psr\Log\LoggerInterface;
 use ReflectionClass;
 use ReflectionException;
 use RuntimeException;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Symfony\Component\HttpKernel\Event\ControllerEvent;
+use Symfony\Component\HttpKernel\Event\ControllerArgumentsEvent;
+use Symfony\Component\HttpKernel\KernelEvents;
 
 /**
- * AnnotationsSubscriber Class.
+ * ControllerSubscriber Class.
  */
-class AnnotationsSubscriber implements EventSubscriberInterface
+class ControllerArgumentSubscriber implements EventSubscriberInterface
 {
     /** @var Reader $annotationReader */
     private $annotationReader;
@@ -38,13 +40,14 @@ class AnnotationsSubscriber implements EventSubscriberInterface
         $this->logger = $logger;
     }
 
-    public function onKernelController(ControllerEvent $event)
+    public function onKernelControllerArguments(ControllerArgumentsEvent $event)
     {
         if (!$event->isMasterRequest()) {
             return;
         }
 
         $controllers = $event->getController();
+
         if (!\is_array($controllers)) {
             return;
         }
@@ -55,11 +58,11 @@ class AnnotationsSubscriber implements EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return [
-            'kernel.controller' => 'onKernelController',
+            KernelEvents::CONTROLLER_ARGUMENTS => 'onKernelControllerArguments',
         ];
     }
 
-    private function handleAnnotation(iterable $controllers, ControllerEvent $event): void
+    private function handleAnnotation(iterable $controllers, ControllerArgumentsEvent $event): void
     {
         list($controller, $method) = $controllers;
 
@@ -69,28 +72,31 @@ class AnnotationsSubscriber implements EventSubscriberInterface
             throw new RuntimeException('Failed to read annotation!');
         }
 
-        $this->handleClassAnnotation($controller, $event);
         $this->handleMethodAnnotation($controller, $method, $event);
     }
 
-    private function handleClassAnnotation(ReflectionClass $controller, ControllerEvent $event): void
-    {
-        $annotation = $this->annotationReader->getClassAnnotation($controller, Before::class);
-
-        if ($annotation instanceof Before) {
-            // print_r($annotation);
-            // var_dump($event->getRequest()->getMethod());
-        }
-    }
-
-    private function handleMethodAnnotation(ReflectionClass $controller, string $method, ControllerEvent $event): void
+    private function handleMethodAnnotation(ReflectionClass $controller, string $method, ControllerArgumentsEvent $event): void
     {
         $method = $controller->getMethod($method);
-        $annotation = $this->annotationReader->getMethodAnnotation($method, Before::class);
 
-        if ($annotation instanceof Before) {
-            // print_r($annotation);
-            // var_dump($event->getRequest()->getMethod());
+        $annotations = $this->annotationReader->getMethodAnnotations($method);
+
+        $arguments = $event->getArguments();
+
+        $event->setArguments([$arguments[0], 'not_ok']);
+
+        $namedArguments = $event->getRequest()->attributes->all();
+
+        // var_dump($namedArguments);
+
+        foreach ($annotations as $annotation) {
+            if ($annotation instanceof Before) {
+                // var_dump($annotation);
+            }
+
+            if ($annotation instanceof Response) {
+                // var_dump($annotation);
+            }
         }
     }
 }

@@ -12,6 +12,7 @@ namespace App\EventSubscriber;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Event\ExceptionEvent;
+use Symfony\Component\HttpKernel\KernelEvents;
 
 /**
  * ExceptionSubscriber Class.
@@ -40,7 +41,7 @@ class ExceptionSubscriber implements EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return [
-            'kernel.exception' => 'onKernelException',
+            KernelEvents::EXCEPTION => 'onKernelException',
         ];
     }
 }
