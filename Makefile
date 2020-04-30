@@ -58,7 +58,7 @@ lint-yaml:
 
 lint-twig:
 	@echo "\n==> Validating all twig files:"
-	@find templates -type f -name \*.twig | while read file; do echo -n "$$file"; php bin/console --no-debug --no-interaction --env=test lint:twig "$$file" || exit 1; done
+	@find themes -type f -name \*.twig | while read file; do echo -n "$$file"; php bin/console --no-debug --no-interaction --env=test lint:twig "$$file" || exit 1; done
 
 
 lint-php:
