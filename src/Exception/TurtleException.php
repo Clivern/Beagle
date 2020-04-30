@@ -16,7 +16,7 @@ use Exception;
  */
 class TurtleException extends Exception
 {
-    /** @var string $errorCode */
+    /** @var string */
     protected $errorCode = ErrorCodes::TURTLE_EXCEPTION;
 
     /**
@@ -26,7 +26,7 @@ class TurtleException extends Exception
     {
         return sprintf(
             'Exception \'%s\' triggered with error code %s:%s%s',
-            \get_class($this),
+            static::class,
             $this->getErrorCode(),
             PHP_EOL,
             parent::__toString()

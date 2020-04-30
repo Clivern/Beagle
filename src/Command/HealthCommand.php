@@ -21,7 +21,7 @@ class HealthCommand extends Command
 {
     protected static $defaultName = 'app:health';
 
-    /** @var LoggerInterface $logger */
+    /** @var LoggerInterface */
     private $logger;
 
     /**

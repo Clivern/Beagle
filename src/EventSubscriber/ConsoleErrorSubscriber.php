@@ -19,7 +19,7 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
  */
 class ConsoleErrorSubscriber implements EventSubscriberInterface
 {
-    /** @var LoggerInterface $logger */
+    /** @var LoggerInterface */
     private $logger;
 
     /**

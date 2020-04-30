@@ -18,10 +18,10 @@ use Symfony\Component\HttpFoundation\RequestStack;
  */
 class CorrelationIdSubscriber
 {
-    /** @var RequestStack $requestStack */
+    /** @var RequestStack */
     private $requestStack;
 
-    /** @var GenericValidator $validator */
+    /** @var GenericValidator */
     private $validator;
 
     /**

@@ -98,4 +98,16 @@ run:
 	$(SYMFONY) serve
 
 
+## installed: Show a list of installed packages
+installed:
+	@echo "\n==> Show a list of installed packages:"
+	$(COMPOSER) show -i
+
+
+## outdated: Show a list of outdated packages
+outdated:
+	@echo "\n==> Show a list of outdated packages:"
+	$(COMPOSER) outdated
+
+
 .PHONY: help

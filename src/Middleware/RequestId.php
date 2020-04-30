@@ -18,13 +18,13 @@ use Symfony\Component\HttpKernel\HttpKernelInterface;
  */
 class RequestId implements HttpKernelInterface
 {
-    /** @var HttpKernelInterface $app */
+    /** @var HttpKernelInterface */
     private $app;
 
-    /** @var string $header */
+    /** @var string */
     private $header;
 
-    /** @var string $responseHeader */
+    /** @var string */
     private $responseHeader;
 
     /**

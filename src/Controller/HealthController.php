@@ -21,7 +21,7 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class HealthController extends AbstractController
 {
-    /** @var LoggerInterface $logger */
+    /** @var LoggerInterface */
     private $logger;
 
     /**
@@ -37,8 +37,7 @@ class HealthController extends AbstractController
      * @Before(namespace="namespace2", version=2, types={"json","xml"})
      * @Response(type="json")
      *
-     * @param mixed $status
-     * @param mixed $extras
+     * @param array $extras
      */
     public function index(Request $request, $extras = [])
     {

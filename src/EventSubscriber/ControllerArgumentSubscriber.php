@@ -25,10 +25,10 @@ use Symfony\Component\HttpKernel\KernelEvents;
  */
 class ControllerArgumentSubscriber implements EventSubscriberInterface
 {
-    /** @var Reader $annotationReader */
+    /** @var Reader */
     private $annotationReader;
 
-    /** @var LoggerInterface $logger */
+    /** @var LoggerInterface */
     private $logger;
 
     /**

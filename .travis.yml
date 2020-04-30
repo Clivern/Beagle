@@ -24,3 +24,5 @@ before_script:
 
 script:
   - make ci
+  - make installed
+  - make outdated

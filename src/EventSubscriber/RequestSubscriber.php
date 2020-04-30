@@ -19,7 +19,7 @@ use Symfony\Component\HttpKernel\KernelEvents;
  */
 class RequestSubscriber implements EventSubscriberInterface
 {
-    /** @var LoggerInterface $logger */
+    /** @var LoggerInterface */
     private $logger;
 
     /**
