@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2041f7bea5a59ea1cd0e8ff97d486a3f",
+    "content-hash": "06d2b804b34de6f695f83dd3147fce09",
     "packages": [
         {
             "name": "brick/math",
@@ -57,6 +57,59 @@
                 }
             ],
             "time": "2020-04-15T15:59:35+00:00"
+        },
+        {
+            "name": "clivern/chunk",
+            "version": "0.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Clivern/Chunk.git",
+                "reference": "3245ffda2c4125f3fee769a8e27f9eef296c4c31"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Clivern/Chunk/zipball/3245ffda2c4125f3fee769a8e27f9eef296c4c31",
+                "reference": "3245ffda2c4125f3fee769a8e27f9eef296c4c31",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "2.16.1",
+                "phpunit/phpunit": "5.7.27",
+                "squizlabs/php_codesniffer": "3.5.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Clivern\\Chunk\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Clivern",
+                    "email": "hello@clivern.com",
+                    "homepage": "http://clivern.com"
+                }
+            ],
+            "description": "Asynchronous Task Queue Based on Distributed Message Passing for PHP.",
+            "homepage": "https://github.com/clivern/chunk",
+            "keywords": [
+                "chunk",
+                "clivern"
+            ],
+            "funding": [
+                {
+                    "url": "https://github.com/clivern",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-03-14T20:53:49+00:00"
         },
         {
             "name": "doctrine/annotations",
