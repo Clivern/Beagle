@@ -37,7 +37,7 @@ class CorrelationIdSubscriber
     {
         $request = $this->requestStack->getCurrentRequest();
 
-        if (!empty($request->headers->get('X-Correlation-ID'))
+        if ($request && !empty($request->headers->get('X-Correlation-ID'))
             && $this->validator->validate($request->headers->get('X-Correlation-ID'))) {
             $record['extra']['CorrelationId'] = $request->headers->get('X-Correlation-ID');
 
