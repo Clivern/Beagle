@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Module\Validator;
 use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -22,12 +23,18 @@ class ItemController extends AbstractController
     /** @var LoggerInterface */
     private $logger;
 
+    /** @var Validator */
+    private $validator;
+
     /**
      * Class Constructor.
      */
-    public function __construct(LoggerInterface $logger)
-    {
+    public function __construct(
+        LoggerInterface $logger,
+        Validator $validator
+    ) {
         $this->logger = $logger;
+        $this->validator = $validator;
     }
 
     /**
