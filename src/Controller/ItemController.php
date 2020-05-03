@@ -35,6 +35,7 @@ class ItemController extends AbstractController
      */
     public function indexAction(Request $request)
     {
+        return $this->json([]);
     }
 
     /**
@@ -42,6 +43,10 @@ class ItemController extends AbstractController
      */
     public function listAction(Request $request)
     {
+        $limit = (int) $request->query->get('limit');
+        $offset = (int) $request->query->get('offset');
+
+        return $this->json([]);
     }
 
     /**
@@ -49,6 +54,7 @@ class ItemController extends AbstractController
      */
     public function createAction(Request $request)
     {
+        return $this->json([]);
     }
 
     /**
@@ -58,6 +64,7 @@ class ItemController extends AbstractController
      */
     public function updateAction(Request $request, $id)
     {
+        return $this->json([]);
     }
 
     /**
@@ -67,5 +74,6 @@ class ItemController extends AbstractController
      */
     public function deleteAction(Request $request, $id)
     {
+        return $this->json([]);
     }
 }

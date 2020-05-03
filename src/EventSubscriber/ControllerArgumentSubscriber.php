@@ -84,18 +84,17 @@ class ControllerArgumentSubscriber implements EventSubscriberInterface
 
         $annotations = $this->annotationReader->getMethodAnnotations($method);
 
-        $arguments = $event->getArguments();
-
-        // Override last argument extras
-        $arguments[\count($arguments) - 1] = ['status' => 'NOT_OK'];
-        $event->setArguments($arguments);
-
         $namedArguments = $event->getRequest()->attributes->all();
 
         // var_dump($namedArguments);
 
         foreach ($annotations as $annotation) {
             if ($annotation instanceof Before) {
+                $arguments = $event->getArguments();
+
+                // Override last argument extras
+                $arguments[\count($arguments) - 1] = ['status' => 'NOT_OK'];
+                $event->setArguments($arguments);
                 // var_dump($annotation);
             }
 
