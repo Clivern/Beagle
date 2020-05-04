@@ -29,6 +29,7 @@ class HealthCommand extends Command
      */
     public function __construct(LoggerInterface $logger)
     {
+        parent::__construct();
         $this->logger = $logger;
     }
 
