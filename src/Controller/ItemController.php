@@ -10,9 +10,11 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Module\Validator;
+use App\Repository\ItemRepository;
 use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -26,15 +28,20 @@ class ItemController extends AbstractController
     /** @var Validator */
     private $validator;
 
+    /** @var ItemRepository */
+    private $itemRepository;
+
     /**
      * Class Constructor.
      */
     public function __construct(
         LoggerInterface $logger,
-        Validator $validator
+        Validator $validator,
+        ItemRepository $itemRepository
     ) {
         $this->logger = $logger;
         $this->validator = $validator;
+        $this->itemRepository = $itemRepository;
     }
 
     /**
@@ -42,7 +49,7 @@ class ItemController extends AbstractController
      */
     public function indexAction(Request $request)
     {
-        return $this->json([]);
+        return $this->json([], Response::HTTP_OK);
     }
 
     /**
@@ -53,7 +60,7 @@ class ItemController extends AbstractController
         $limit = (int) $request->query->get('limit');
         $offset = (int) $request->query->get('offset');
 
-        return $this->json([]);
+        return $this->json([], Response::HTTP_OK);
     }
 
     /**
@@ -61,7 +68,7 @@ class ItemController extends AbstractController
      */
     public function createAction(Request $request)
     {
-        return $this->json([]);
+        return $this->json([], Response::HTTP_CREATED);
     }
 
     /**
@@ -71,7 +78,7 @@ class ItemController extends AbstractController
      */
     public function updateAction(Request $request, $id)
     {
-        return $this->json([]);
+        return $this->json([], Response::HTTP_OK);
     }
 
     /**
@@ -81,6 +88,6 @@ class ItemController extends AbstractController
      */
     public function deleteAction(Request $request, $id)
     {
-        return $this->json([]);
+        return $this->json([], Response::HTTP_NO_CONTENT);
     }
 }
