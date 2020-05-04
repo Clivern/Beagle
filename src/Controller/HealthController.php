@@ -43,6 +43,8 @@ class HealthController extends AbstractController
     {
         $this->logger->info('Application is up!');
 
+        // throw new \App\Exception\ServerError('Internal Server Error', 500);
+
         return $this->json([
             'status' => (!empty($extras['status'])) ? $extras['status'] : 'OK',
         ]);

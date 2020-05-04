@@ -14,5 +14,5 @@ namespace App\Exception;
  */
 class ErrorCodes
 {
-    const TURTLE_EXCEPTION = 'TURTLE001';
+    const ERROR001 = 'ERROR_001';
 }

@@ -9,8 +9,11 @@ declare(strict_types=1);
 
 namespace App\EventSubscriber;
 
+use App\Exception\ClientError;
+use App\Exception\ServerError;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpKernel\Event\ExceptionEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 
@@ -32,10 +35,11 @@ class ExceptionSubscriber implements EventSubscriberInterface
 
     public function onKernelException(ExceptionEvent $event)
     {
-        $this->logger->error(sprintf(
-            'Error triggered: %s',
-            $event->getThrowable()->getMessage()
-        ));
+        if ($event->getThrowable() instanceof ServerError) {
+            return $this->handleServerError($event, $event->getThrowable());
+        } elseif ($event->getThrowable() instanceof ClientError) {
+            return $this->handleClientError($event, $event->getThrowable());
+        }
     }
 
     public static function getSubscribedEvents()
@@ -43,5 +47,33 @@ class ExceptionSubscriber implements EventSubscriberInterface
         return [
             KernelEvents::EXCEPTION => 'onKernelException',
         ];
+    }
+
+    /**
+     * Handle ServerError Exception.
+     *
+     * @return void
+     */
+    private function handleServerError(ExceptionEvent $event, ServerError $e)
+    {
+        $event->setResponse(new JsonResponse([
+            'errorCode' => $e->getErrorCode(),
+            'errorMessage' => $e->getMessage(),
+        ], $e->getHttpCode()));
+    }
+
+    /**
+     * Handle ClientError Exception.
+     *
+     * @param ServerError $e
+     *
+     * @return void
+     */
+    private function handleClientError(ExceptionEvent $event, ClientError $e)
+    {
+        $event->setResponse(new JsonResponse([
+            'errorCode' => $e->getErrorCode(),
+            'errorMessage' => $e->getMessage(),
+        ], $e->getHttpCode()));
     }
 }
