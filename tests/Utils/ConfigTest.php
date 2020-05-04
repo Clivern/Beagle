@@ -10,6 +10,9 @@ namespace App\Tests\Utils;
 use App\Utils\Config;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * ConfigTest Class.
+ */
 class ConfigTest extends TestCase
 {
     public function testGet()
