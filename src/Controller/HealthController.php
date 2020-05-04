@@ -11,6 +11,7 @@ namespace App\Controller;
 
 use App\Annotation\Before;
 use App\Annotation\Controller\Response as ResponseAnnotation;
+use App\Utils\Config;
 use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -25,12 +26,18 @@ class HealthController extends AbstractController
     /** @var LoggerInterface */
     private $logger;
 
+    /** @var Config */
+    private $config;
+
     /**
      * Class Constructor.
      */
-    public function __construct(LoggerInterface $logger)
-    {
+    public function __construct(
+        LoggerInterface $logger,
+        Config $config
+    ) {
         $this->logger = $logger;
+        $this->config = $config;
     }
 
     /**
@@ -44,7 +51,7 @@ class HealthController extends AbstractController
     {
         $this->logger->info('Application is up!');
 
-        throw new \App\Exception\ServerError('Internal Server Error', Response::HTTP_INTERNAL_SERVER_ERROR);
+        // throw new \App\Exception\ServerError('Internal Server Error', Response::HTTP_INTERNAL_SERVER_ERROR);
 
         return $this->json([
             'status' => (!empty($extras['status'])) ? $extras['status'] : 'OK',

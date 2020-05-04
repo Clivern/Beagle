@@ -11,6 +11,7 @@ namespace App\Controller;
 
 use App\Module\Validator;
 use App\Repository\ItemRepository;
+use App\Utils\Config;
 use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -31,17 +32,22 @@ class ItemController extends AbstractController
     /** @var ItemRepository */
     private $itemRepository;
 
+    /** @var Config */
+    private $config;
+
     /**
      * Class Constructor.
      */
     public function __construct(
         LoggerInterface $logger,
         Validator $validator,
-        ItemRepository $itemRepository
+        ItemRepository $itemRepository,
+        Config $config
     ) {
         $this->logger = $logger;
         $this->validator = $validator;
         $this->itemRepository = $itemRepository;
+        $this->config = $config;
     }
 
     /**
