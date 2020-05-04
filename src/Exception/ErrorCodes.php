@@ -15,4 +15,5 @@ namespace App\Exception;
 class ErrorCodes
 {
     const ERROR001 = 'ERROR_001';
+    const ERROR_002 = 'ERROR_002';
 }

@@ -10,10 +10,11 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Annotation\Before;
-use App\Annotation\Controller\Response;
+use App\Annotation\Controller\Response as ResponseAnnotation;
 use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -35,7 +36,7 @@ class HealthController extends AbstractController
     /**
      * @Route("_health", name="app.health")
      * @Before(namespace="namespace2", version=2, types={"json","xml"})
-     * @Response(type="json")
+     * @ResponseAnnotation(type="json")
      *
      * @param array $extras
      */
@@ -43,7 +44,7 @@ class HealthController extends AbstractController
     {
         $this->logger->info('Application is up!');
 
-        // throw new \App\Exception\ServerError('Internal Server Error', 500);
+        throw new \App\Exception\ServerError('Internal Server Error', Response::HTTP_INTERNAL_SERVER_ERROR);
 
         return $this->json([
             'status' => (!empty($extras['status'])) ? $extras['status'] : 'OK',

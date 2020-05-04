@@ -10,10 +10,13 @@ declare(strict_types=1);
 namespace App\EventSubscriber;
 
 use App\Exception\ClientError;
+use App\Exception\ErrorCodes;
 use App\Exception\ServerError;
+use Exception;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\ExceptionEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 
@@ -40,6 +43,8 @@ class ExceptionSubscriber implements EventSubscriberInterface
         } elseif ($event->getThrowable() instanceof ClientError) {
             return $this->handleClientError($event, $event->getThrowable());
         }
+
+        return $this->handleUnexpectedError($event, $event->getThrowable());
     }
 
     public static function getSubscribedEvents()
@@ -75,5 +80,20 @@ class ExceptionSubscriber implements EventSubscriberInterface
             'errorCode' => $e->getErrorCode(),
             'errorMessage' => $e->getMessage(),
         ], $e->getHttpCode()));
+    }
+
+    /**
+     * Handle Exception.
+     *
+     * @param Exception $e
+     *
+     * @return void
+     */
+    private function handleUnexpectedError(ExceptionEvent $event, $e)
+    {
+        $event->setResponse(new JsonResponse([
+            'errorCode' => ErrorCodes::ERROR_002,
+            'errorMessage' => $e->getMessage(),
+        ], Response::HTTP_INTERNAL_SERVER_ERROR));
     }
 }
