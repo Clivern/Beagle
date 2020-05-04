@@ -22,9 +22,9 @@ class BaseException extends Exception
     /**
      * Class Constructor.
      *
-     * @param string $httpCode
-     * @param string $errorCode
-     * @param int    $code
+     * @param string    $errorCode
+     * @param int       $code
+     * @param Exception $previous
      */
     public function __construct(
         string $message,

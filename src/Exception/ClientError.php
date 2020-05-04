@@ -22,9 +22,9 @@ class ClientError extends BaseException
     /**
      * Class Constructor.
      *
-     * @param string $httpCode
-     * @param string $errorCode
-     * @param int    $code
+     * @param string    $errorCode
+     * @param int       $code
+     * @param Exception $previous
      */
     public function __construct(
         string $message,
@@ -51,18 +51,12 @@ class ClientError extends BaseException
         );
     }
 
-    /**
-     * @return string
-     */
     public function getHttpCode(): int
     {
         return $this->httpCode;
     }
 
     /**
-     * @param string $errorCode
-     * @param mixed  $httpCode
-     *
      * @return ClientError
      */
     public function setHttpCode(int $httpCode)
