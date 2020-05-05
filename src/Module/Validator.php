@@ -9,7 +9,10 @@ declare(strict_types=1);
 
 namespace App\Module;
 
+use App\Exception\ClientError;
+use Exception;
 use JsonSchema\Validator as JsonValidator;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\KernelInterface;
 
 /**
@@ -31,31 +34,52 @@ class Validator
     /**
      * Validate JSON against JSON Schema.
      */
-    public function validate(string $data, string $schemaName): array
+    public function validate(string $data, string $schemaName): bool
     {
-        $validator = new JsonValidator();
+        $errors = $this->check($data, $schemaName);
 
-        $validator->validate(
-            json_decode($data),
-            (object) [
-                '$ref' => 'file://'.realpath(sprintf(
-                    '%s/schemas/%s',
-                    $this->appKernel->getProjectDir(),
-                    $schemaName
-                )),
-            ]
-        );
+        if (!empty($errors)) {
+            throw new ClientError($errors[0], Response::HTTP_BAD_REQUEST);
+        }
 
-        $messages = [];
+        return true;
+    }
 
-        if ($validator->isValid()) {
+    /**
+     * Check JSON against JSON Schema.
+     */
+    public function check(string $data, string $schemaName): array
+    {
+        try {
+            $data = empty(trim($data)) ? '{}' : $data;
+            $dataObj = json_decode($data);
+
+            $validator = new JsonValidator();
+
+            $validator->validate(
+                $dataObj,
+                (object) [
+                    '$ref' => 'file://'.realpath(sprintf(
+                        '%s/schemas/%s',
+                        $this->appKernel->getProjectDir(),
+                        $schemaName
+                    )),
+                ]
+            );
+
+            $messages = [];
+
+            if ($validator->isValid()) {
+                return $messages;
+            }
+
+            foreach ($validator->getErrors() as $error) {
+                $messages[] = $error['property'].': '.$error['message'];
+            }
+
             return $messages;
+        } catch (Exception $e) {
+            throw new ClientError('Invalid request', Response::HTTP_BAD_REQUEST);
         }
-
-        foreach ($validator->getErrors() as $error) {
-            $messages[] = $error['property'].': '.$error['message'];
-        }
-
-        return $messages;
     }
 }

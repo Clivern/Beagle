@@ -76,6 +76,10 @@ class ItemController extends AbstractController
      */
     public function createAction(Request $request)
     {
+        $data = $request->getContent();
+
+        $this->validator->validate($data, 'v1/item/createAction.schema.json');
+
         return $this->json([], Response::HTTP_CREATED);
     }
 
@@ -86,6 +90,10 @@ class ItemController extends AbstractController
      */
     public function updateAction(Request $request, $id)
     {
+        $data = $request->getContent();
+
+        $this->validator->validate($data, 'v1/item/updateAction.schema.json');
+
         return $this->json([], Response::HTTP_OK);
     }
 

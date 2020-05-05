@@ -61,6 +61,8 @@ class ExceptionSubscriber implements EventSubscriberInterface
      */
     private function handleServerError(ExceptionEvent $event, ServerError $e)
     {
+        $this->logger->error(sprintf('Stack trace: %s', $e->getTraceAsString()));
+
         $event->setResponse(new JsonResponse([
             'errorCode' => $e->getErrorCode(),
             'errorMessage' => $e->getMessage(),
@@ -76,6 +78,8 @@ class ExceptionSubscriber implements EventSubscriberInterface
      */
     private function handleClientError(ExceptionEvent $event, ClientError $e)
     {
+        $this->logger->debug(sprintf('Stack trace: %s', $e->getTraceAsString()));
+
         $event->setResponse(new JsonResponse([
             'errorCode' => $e->getErrorCode(),
             'errorMessage' => $e->getMessage(),
@@ -91,6 +95,8 @@ class ExceptionSubscriber implements EventSubscriberInterface
      */
     private function handleUnexpectedError(ExceptionEvent $event, $e)
     {
+        $this->logger->error(sprintf('Stack trace: %s', $e->getTraceAsString()));
+
         $event->setResponse(new JsonResponse([
             'errorCode' => ErrorCodes::ERROR_002,
             'errorMessage' => $e->getMessage(),

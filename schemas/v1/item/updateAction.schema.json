@@ -1,0 +1,13 @@
+{
+  "$id": "updateItemAction",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Update Item Action",
+  "type": "object",
+  "properties": {
+    "value": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": ["value"]
+}
