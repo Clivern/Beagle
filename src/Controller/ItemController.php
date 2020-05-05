@@ -20,6 +20,8 @@ use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * Item Controller.
+ *
+ * @Route("/api/v1/item")
  */
 class ItemController extends AbstractController
 {
@@ -51,7 +53,7 @@ class ItemController extends AbstractController
     }
 
     /**
-     * @Route("/api/v1/item/{id}", methods={"GET"}, name="item.indexAction", requirements={"id"="\d+"})
+     * @Route("/{id}", methods={"GET"}, name="item.indexAction", requirements={"id"="\d+"})
      */
     public function indexAction(Request $request)
     {
@@ -59,7 +61,7 @@ class ItemController extends AbstractController
     }
 
     /**
-     * @Route("/api/v1/item", methods={"GET"}, name="item.listAction")
+     * @Route("/", methods={"GET"}, name="item.listAction")
      */
     public function listAction(Request $request)
     {
@@ -70,7 +72,7 @@ class ItemController extends AbstractController
     }
 
     /**
-     * @Route("/api/v1/item", methods={"POST"}, name="item.createAction")
+     * @Route("/", methods={"POST"}, name="item.createAction")
      */
     public function createAction(Request $request)
     {
@@ -78,7 +80,7 @@ class ItemController extends AbstractController
     }
 
     /**
-     * @Route("/api/v1/item/{id}", methods={"PUT"}, name="item.updateAction", requirements={"id"="\d+"})
+     * @Route("/{id}", methods={"PUT"}, name="item.updateAction", requirements={"id"="\d+"})
      *
      * @param mixed $id
      */
@@ -88,7 +90,7 @@ class ItemController extends AbstractController
     }
 
     /**
-     * @Route("/api/v1/item/{id}", methods={"DELETE"}, name="item.deleteAction", requirements={"id"="\d+"})
+     * @Route("/{id}", methods={"DELETE"}, name="item.deleteAction", requirements={"id"="\d+"})
      *
      * @param mixed $id
      */
