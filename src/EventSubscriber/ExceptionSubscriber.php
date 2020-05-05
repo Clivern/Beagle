@@ -66,7 +66,7 @@ class ExceptionSubscriber implements EventSubscriberInterface
         $event->setResponse(new JsonResponse([
             'errorCode' => $e->getErrorCode(),
             'errorMessage' => $e->getMessage(),
-            'correlationId' => $event->getRequest()->headers->get("X-Correlation-ID", ""),
+            'correlationId' => $event->getRequest()->headers->get('X-Correlation-ID', ''),
         ], $e->getHttpCode()));
     }
 
@@ -84,7 +84,7 @@ class ExceptionSubscriber implements EventSubscriberInterface
         $event->setResponse(new JsonResponse([
             'errorCode' => $e->getErrorCode(),
             'errorMessage' => $e->getMessage(),
-            'correlationId' => $event->getRequest()->headers->get("X-Correlation-ID", ""),
+            'correlationId' => $event->getRequest()->headers->get('X-Correlation-ID', ''),
         ], $e->getHttpCode()));
     }
 
@@ -102,7 +102,7 @@ class ExceptionSubscriber implements EventSubscriberInterface
         $event->setResponse(new JsonResponse([
             'errorCode' => ErrorCodes::ERROR_002,
             'errorMessage' => $e->getMessage(),
-            'correlationId' => $event->getRequest()->headers->get("X-Correlation-ID", ""),
+            'correlationId' => $event->getRequest()->headers->get('X-Correlation-ID', ''),
         ], Response::HTTP_INTERNAL_SERVER_ERROR));
     }
 }
