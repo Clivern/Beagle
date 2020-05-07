@@ -33,7 +33,7 @@ class RequestSubscriber implements EventSubscriberInterface
     public function onKernelRequest(RequestEvent $event)
     {
         $this->logger->info(sprintf(
-            'Incoming Request: %s:%s %s',
+            'Incoming [%s] request, route [%s] and uri [%s]',
             $event->getRequest()->getMethod(),
             $event->getRequest()->get('_route'),
             $event->getRequest()->getUri()

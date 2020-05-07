@@ -34,14 +34,14 @@ class ResponseSubscriber implements EventSubscriberInterface
     {
         if ('application/json' === $event->getResponse()->headers->get('content-type', '')) {
             $this->logger->info(sprintf(
-                'Outgoing response with status code %s: %s %s',
+                'Outgoing [%s] response, route [%s]: %s',
                 $event->getResponse()->getStatusCode(),
                 $event->getRequest()->get('_route'),
-                $event->getResponse()
+                $event->getResponse()->getContent()
             ));
         } else {
             $this->logger->info(sprintf(
-                'Outgoing response with status code %s: %s <html>...',
+                'Outgoing [%s] response, route [%s]: <html>...',
                 $event->getResponse()->getStatusCode(),
                 $event->getRequest()->get('_route')
             ));

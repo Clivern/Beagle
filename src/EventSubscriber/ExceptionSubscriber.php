@@ -61,7 +61,13 @@ class ExceptionSubscriber implements EventSubscriberInterface
      */
     private function handleServerError(ExceptionEvent $event, ServerError $e)
     {
-        $this->logger->error(sprintf('Stack trace: %s', $e->getTraceAsString()));
+        $this->logger->error(sprintf(
+            'Exception with errorCode [%s] errorMessage [%s] httpCode [%s] thrown: %s',
+            $e->getErrorCode(),
+            $e->getMessage(),
+            $e->getHttpCode(),
+            $e->getTraceAsString()
+        ));
 
         $event->setResponse(new JsonResponse([
             'errorCode' => $e->getErrorCode(),
@@ -79,7 +85,13 @@ class ExceptionSubscriber implements EventSubscriberInterface
      */
     private function handleClientError(ExceptionEvent $event, ClientError $e)
     {
-        $this->logger->debug(sprintf('Stack trace: %s', $e->getTraceAsString()));
+        $this->logger->debug(sprintf(
+            'Exception with errorCode [%s] errorMessage [%s] httpCode [%s] thrown: %s',
+            $e->getErrorCode(),
+            $e->getMessage(),
+            $e->getHttpCode(),
+            $e->getTraceAsString()
+        ));
 
         $event->setResponse(new JsonResponse([
             'errorCode' => $e->getErrorCode(),
@@ -97,7 +109,13 @@ class ExceptionSubscriber implements EventSubscriberInterface
      */
     private function handleUnexpectedError(ExceptionEvent $event, $e)
     {
-        $this->logger->error(sprintf('Stack trace: %s', $e->getTraceAsString()));
+        $this->logger->error(sprintf(
+            'Exception with errorCode [%s] errorMessage [%s] httpCode [%s] thrown: %s',
+            ErrorCodes::ERROR_002,
+            $e->getMessage(),
+            Response::HTTP_INTERNAL_SERVER_ERROR,
+            $e->getTraceAsString()
+        ));
 
         $event->setResponse(new JsonResponse([
             'errorCode' => ErrorCodes::ERROR_002,
