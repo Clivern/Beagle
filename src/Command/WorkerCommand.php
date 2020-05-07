@@ -18,11 +18,11 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
 /**
- * Health Command.
+ * Worker Command.
  */
-class HealthCommand extends Command
+class WorkerCommand extends Command
 {
-    protected static $defaultName = 'app:health';
+    protected static $defaultName = 'app:worker';
 
     /** @var LoggerInterface */
     private $logger;

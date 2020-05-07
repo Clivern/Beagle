@@ -2,9 +2,6 @@
     "brick/math": {
         "version": "0.8.14"
     },
-    "clivern/chunk": {
-        "version": "0.0.1"
-    },
     "composer/semver": {
         "version": "1.5.1"
     },
@@ -135,6 +132,9 @@
     "php": {
         "version": "7.2"
     },
+    "php-amqplib/php-amqplib": {
+        "version": "v2.11.2"
+    },
     "php-cs-fixer/diff": {
         "version": "v1.3.0"
     },
@@ -146,6 +146,9 @@
     },
     "phpdocumentor/type-resolver": {
         "version": "1.1.0"
+    },
+    "phpseclib/phpseclib": {
+        "version": "2.0.27"
     },
     "psr/cache": {
         "version": "1.0.1"
