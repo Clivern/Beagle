@@ -30,6 +30,9 @@ class ResponseSubscriber implements EventSubscriberInterface
         $this->logger = $logger;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function onKernelResponse(ResponseEvent $event)
     {
         if ('application/json' === $event->getResponse()->headers->get('content-type', '')) {
@@ -48,6 +51,9 @@ class ResponseSubscriber implements EventSubscriberInterface
         }
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public static function getSubscribedEvents()
     {
         return [

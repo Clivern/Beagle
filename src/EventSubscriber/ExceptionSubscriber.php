@@ -36,6 +36,9 @@ class ExceptionSubscriber implements EventSubscriberInterface
         $this->logger = $logger;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function onKernelException(ExceptionEvent $event)
     {
         if ($event->getThrowable() instanceof ServerError) {
@@ -47,6 +50,9 @@ class ExceptionSubscriber implements EventSubscriberInterface
         return $this->handleUnexpectedError($event, $event->getThrowable());
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public static function getSubscribedEvents()
     {
         return [
@@ -79,13 +85,11 @@ class ExceptionSubscriber implements EventSubscriberInterface
     /**
      * Handle ClientError Exception.
      *
-     * @param ServerError $e
-     *
      * @return void
      */
     private function handleClientError(ExceptionEvent $event, ClientError $e)
     {
-        $this->logger->debug(sprintf(
+        $this->logger->error(sprintf(
             'Exception with errorCode [%s] errorMessage [%s] httpCode [%s] thrown: %s',
             $e->getErrorCode(),
             $e->getMessage(),
@@ -101,7 +105,7 @@ class ExceptionSubscriber implements EventSubscriberInterface
     }
 
     /**
-     * Handle Exception.
+     * Handle Unexpected Exception.
      *
      * @param Exception $e
      *

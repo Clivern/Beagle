@@ -33,6 +33,11 @@ class CorrelationIdSubscriber
         $this->validator = new GenericValidator();
     }
 
+    /**
+     * Appends CorrelationId to log record.
+     *
+     * @return array
+     */
     public function __invoke(array $record)
     {
         $request = $this->requestStack->getCurrentRequest();

@@ -30,6 +30,9 @@ class ConsoleErrorSubscriber implements EventSubscriberInterface
         $this->logger = $logger;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function onConsoleError(ConsoleErrorEvent $event)
     {
         $this->logger->error(sprintf(
@@ -39,6 +42,9 @@ class ConsoleErrorSubscriber implements EventSubscriberInterface
         ));
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public static function getSubscribedEvents()
     {
         return [

@@ -40,6 +40,9 @@ class ControllerSubscriber implements EventSubscriberInterface
         $this->logger = $logger;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function onKernelController(ControllerEvent $event)
     {
         if (!$event->isMasterRequest()) {
@@ -55,6 +58,9 @@ class ControllerSubscriber implements EventSubscriberInterface
         $this->handleAnnotation($controllers, $event);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public static function getSubscribedEvents()
     {
         return [
@@ -62,6 +68,9 @@ class ControllerSubscriber implements EventSubscriberInterface
         ];
     }
 
+    /**
+     * Handle Controller Annotation.
+     */
     private function handleAnnotation(iterable $controllers, ControllerEvent $event): void
     {
         list($controller, $method) = $controllers;
@@ -75,6 +84,9 @@ class ControllerSubscriber implements EventSubscriberInterface
         $this->handleMethodAnnotation($controller, $method, $event);
     }
 
+    /**
+     * Handle Controller Method Annotation.
+     */
     private function handleMethodAnnotation(ReflectionClass $controller, string $method, ControllerEvent $event): void
     {
         $method = $controller->getMethod($method);

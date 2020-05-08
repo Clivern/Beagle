@@ -30,6 +30,9 @@ class RequestSubscriber implements EventSubscriberInterface
         $this->logger = $logger;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function onKernelRequest(RequestEvent $event)
     {
         $this->logger->info(sprintf(
@@ -40,6 +43,9 @@ class RequestSubscriber implements EventSubscriberInterface
         ));
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public static function getSubscribedEvents()
     {
         return [
