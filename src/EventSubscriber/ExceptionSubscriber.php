@@ -89,7 +89,7 @@ class ExceptionSubscriber implements EventSubscriberInterface
      */
     private function handleClientError(ExceptionEvent $event, ClientError $e)
     {
-        $this->logger->error(sprintf(
+        $this->logger->info(sprintf(
             'Exception with errorCode [%s] errorMessage [%s] httpCode [%s] thrown: %s',
             $e->getErrorCode(),
             $e->getMessage(),
