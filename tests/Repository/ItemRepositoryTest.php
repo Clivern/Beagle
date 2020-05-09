@@ -21,6 +21,9 @@ class ItemRepositoryTest extends KernelTestCase
      */
     private $entityManager;
 
+    /** @var ItemRepository */
+    private $itemRepository;
+
     /**
      * {@inheritdoc}
      */
@@ -31,6 +34,9 @@ class ItemRepositoryTest extends KernelTestCase
         $this->entityManager = $kernel->getContainer()
             ->get('doctrine')
             ->getManager();
+
+        $this->itemRepository = $this->entityManager
+            ->getRepository(Item::class);
     }
 
     /**
@@ -51,10 +57,48 @@ class ItemRepositoryTest extends KernelTestCase
      */
     public function testClass()
     {
-        $itemRepository = $this->entityManager
-            ->getRepository(Item::class)
-        ;
+        $this->assertTrue($this->itemRepository instanceof ItemRepository);
+    }
 
-        $this->assertTrue($itemRepository instanceof ItemRepository);
+    /**
+     * Test CRUD.
+     */
+    public function testCrud()
+    {
+        $itemId = $this->itemRepository->insertOne(['value' => '~value~']);
+        $item = $this->itemRepository->getOneById($itemId);
+
+        $this->assertSame($itemId, 1);
+        $this->assertSame($item->getId(), 1);
+        $this->assertSame($item->getValue(), '~value~');
+
+        $this->assertTrue(!empty($item->getCreatedAt()));
+        $this->assertTrue(!empty($item->getUpdatedAt()));
+        $this->assertTrue(empty($item->getDeletedAt()));
+
+        $this->assertTrue($item->getCreatedAt() instanceof \DateTime);
+        $this->assertTrue($item->getUpdatedAt() instanceof \DateTime);
+
+        $this->assertTrue($this->itemRepository->updateOneById($itemId, ['value' => '--value--']));
+        $this->assertFalse($this->itemRepository->updateOneById(20, ['value' => '--value--']));
+
+        $item = $this->itemRepository->getOneById($itemId);
+        $this->assertSame($item->getValue(), '--value--');
+
+        $this->assertTrue($this->itemRepository->deleteOneById($itemId));
+
+        $item = $this->itemRepository->getOneById($itemId);
+
+        $this->assertTrue(!empty($item->getCreatedAt()));
+        $this->assertTrue(!empty($item->getUpdatedAt()));
+        $this->assertTrue(!empty($item->getDeletedAt()));
+
+        $this->assertTrue($item->getCreatedAt() instanceof \DateTime);
+        $this->assertTrue($item->getUpdatedAt() instanceof \DateTime);
+        $this->assertTrue($item->getDeletedAt() instanceof \DateTime);
+
+        $this->assertTrue($this->itemRepository->deleteOneById($itemId, false));
+
+        $this->assertTrue(empty($this->itemRepository->getOneById($itemId)));
     }
 }

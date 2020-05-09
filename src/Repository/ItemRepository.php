@@ -10,6 +10,7 @@ declare(strict_types=1);
 namespace App\Repository;
 
 use App\Entity\Item;
+use DateTime;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 use Psr\Log\LoggerInterface;
@@ -30,8 +31,6 @@ class ItemRepository extends ServiceEntityRepository
 
     /**
      * Get an Item by ID.
-     *
-     * @return bool|Item
      */
     public function getOneById(int $id): ?Item
     {
@@ -39,7 +38,7 @@ class ItemRepository extends ServiceEntityRepository
             'id' => $id,
         ]);
 
-        return !empty($item) ? $item : false;
+        return !empty($item) ? $item : null;
     }
 
     /**
@@ -49,6 +48,7 @@ class ItemRepository extends ServiceEntityRepository
      */
     public function getMany(int $offset, int $limit, $deleted = false): array
     {
+        return [];
     }
 
     /**
@@ -58,8 +58,8 @@ class ItemRepository extends ServiceEntityRepository
     {
         $item = new Item();
         $item->setValue($data['value']);
-        $this->persist($item);
-        $this->flush();
+        $this->getEntityManager()->persist($item);
+        $this->getEntityManager()->flush();
 
         return $item->getId();
     }
@@ -75,7 +75,7 @@ class ItemRepository extends ServiceEntityRepository
 
         if (!empty($item)) {
             $item->setValue($data['value']);
-            $this->flush();
+            $this->getEntityManager()->flush();
 
             return true;
         }
@@ -94,14 +94,14 @@ class ItemRepository extends ServiceEntityRepository
 
         if (!empty($item) && $soft) {
             $item->setDeletedAt(new DateTime());
-            $this->flush();
+            $this->getEntityManager()->flush();
 
             return true;
         }
 
         if (!empty($item) && !$soft) {
-            $this->remove($item);
-            $this->flush();
+            $this->getEntityManager()->remove($item);
+            $this->getEntityManager()->flush();
 
             return true;
         }

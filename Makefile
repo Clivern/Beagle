@@ -1,6 +1,7 @@
 COMPOSER ?= composer
 PHPUNIT_OPTS =
 SYMFONY = symfony
+PHP = php
 
 
 help: Makefile
@@ -31,7 +32,17 @@ fix-diff:
 	./vendor/bin/php-cs-fixer fix --diff --dry-run -v
 
 
-test: cc composer
+clear_db:
+	rm -f ./var/cache/data.db
+
+
+migrate:
+	@echo "\n==> Migrate DB Tables"
+	export APP_ENV=test
+	$(PHP) bin/console doctrine:schema:update --force
+
+
+test: cc composer clear_db migrate
 	bin/phpunit -c . $(PHPUNIT_OPTS) --log-junit build/phpunit.xml
 
 
