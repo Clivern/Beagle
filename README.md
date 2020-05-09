@@ -1,11 +1,11 @@
 <p align="center">
-    <img alt="Turtle Logo" src="https://raw.githubusercontent.com/clivern/Turtle/master/public/assets/images/logo.png?v=0.0.2" width="150" />
-    <h3 align="center">Turtle</h3>
+    <img alt="Beagle Logo" src="https://raw.githubusercontent.com/clivern/Beagle/master/public/assets/images/logo.png?v=0.0.2" width="150" />
+    <h3 align="center">Beagle</h3>
     <p align="center">Symfony Applications Boilerplate.</p>
     <p align="center">
-        <a href="https://travis-ci.com/Clivern/Turtle"><img src="https://travis-ci.com/Clivern/Turtle.svg?branch=master"></a>
-        <a href="https://github.com/Clivern/Turtle/releases"><img src="https://img.shields.io/badge/Version-0.1.0-red.svg"></a>
-        <a href="https://github.com/Clivern/Turtle/blob/master/LICENSE"><img src="https://img.shields.io/badge/LICENSE-MIT-orange.svg"></a>
+        <a href="https://travis-ci.com/Clivern/Beagle"><img src="https://travis-ci.com/Clivern/Beagle.svg?branch=master"></a>
+        <a href="https://github.com/Clivern/Beagle/releases"><img src="https://img.shields.io/badge/Version-0.1.0-red.svg"></a>
+        <a href="https://github.com/Clivern/Beagle/blob/master/LICENSE"><img src="https://img.shields.io/badge/LICENSE-MIT-orange.svg"></a>
     </p>
 </p>
 
@@ -41,19 +41,19 @@ $ make fix
 
 ## Versioning
 
-For transparency into our release cycle and in striving to maintain backward compatibility, Turtle is maintained under the [Semantic Versioning guidelines](https://semver.org/) and release process is predictable and business-friendly.
+For transparency into our release cycle and in striving to maintain backward compatibility, Beagle is maintained under the [Semantic Versioning guidelines](https://semver.org/) and release process is predictable and business-friendly.
 
-See the [Releases section of our GitHub project](https://github.com/clivern/turtle/releases) for changelogs for each release version of Turtle. It contains summaries of the most noteworthy changes made in each release.
+See the [Releases section of our GitHub project](https://github.com/clivern/beagle/releases) for changelogs for each release version of Beagle. It contains summaries of the most noteworthy changes made in each release.
 
 
 ## Bug tracker
 
-If you have any suggestions, bug reports, or annoyances please report them to our issue tracker at https://github.com/clivern/turtle/issues
+If you have any suggestions, bug reports, or annoyances please report them to our issue tracker at https://github.com/clivern/beagle/issues
 
 
 ## Security Issues
 
-If you discover a security vulnerability within Turtle, please send an email to [hello@clivern.com](mailto:hello@clivern.com)
+If you discover a security vulnerability within Beagle, please send an email to [hello@clivern.com](mailto:hello@clivern.com)
 
 
 ## Contributing
@@ -65,4 +65,4 @@ We are an open source, community-driven project so please feel free to join us. 
 
 © 2020, clivern. Released under [MIT License](https://opensource.org/licenses/mit-license.php).
 
-**Turtle** is authored and maintained by [@clivern](http://github.com/clivern).
+**Beagle** is authored and maintained by [@clivern](http://github.com/clivern).

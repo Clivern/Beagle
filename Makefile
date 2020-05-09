@@ -5,7 +5,7 @@ SYMFONY = symfony
 
 help: Makefile
 	@echo
-	@echo " Choose a command run in Turtle:"
+	@echo " Choose a command run in Beagle:"
 	@echo
 	@sed -n 's/^##//p' $< | column -t -s ':' |  sed -e 's/^/ /'
 	@echo
@@ -92,9 +92,9 @@ ci: clear composer lint test
 	@echo "All quality checks passed"
 
 
-## run: Run Turtle
+## run: Run Beagle
 run:
-	@echo "\n==> Run Turtle:"
+	@echo "\n==> Run Beagle:"
 	$(SYMFONY) serve
 
 

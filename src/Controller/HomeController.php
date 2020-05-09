@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /*
- * This file is part of the Turtle project.
+ * This file is part of the Beagle project.
  * (c) Clivern <hello@clivern.com>
  */
 
@@ -40,7 +40,7 @@ class HomeController extends AbstractController
     public function index(Request $request)
     {
         return $this->render('guest/home.html.twig', [
-            'site_title' => 'Turtle',
+            'site_title' => 'Beagle',
         ]);
     }
 }

@@ -8,7 +8,7 @@ keys:
     - ~/.ssh/id_rsa
 folders:
     -
-        map: /Path/To/Turtle
+        map: /Path/To/Beagle
         to: /home/vagrant/code
 sites:
     -
@@ -23,5 +23,5 @@ features:
         ohmyzsh: false
     -
         webdriver: false
-name: turtle
-hostname: turtle
+name: beagle
+hostname: beagle
