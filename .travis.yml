@@ -23,6 +23,7 @@ before_script:
   - travis_retry composer update ${COMPOSER_FLAGS} --no-interaction --prefer-dist
 
 script:
+  - export APP_ENV=test
   - make ci
   - make installed
   - make outdated
