@@ -47,7 +47,7 @@ lint-eol:
 
 lint-composer:
 	@echo "\n==> Validating composer.json and composer.lock:"
-	$(COMPOSER) validate --strict
+	$(COMPOSER) validate --strict --no-check-all
 
 
 lint-yaml:
