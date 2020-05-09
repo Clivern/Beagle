@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -30,6 +31,36 @@ class Item
      * @ORM\Column(name="value", type="text")
      */
     private $value;
+
+    /**
+     * @var DateTime
+     *
+     * @ORM\Column(name="created_at", type="datetime", nullable=false)
+     */
+    private $createdAt;
+
+    /**
+     * @var DateTime
+     *
+     * @ORM\Column(name="updated_at", type="datetime", nullable=false)
+     */
+    private $updatedAt;
+
+    /**
+     * @var DateTime
+     *
+     * @ORM\Column(name="deleted_at", type="datetime", nullable=true)
+     */
+    private $deletedAt;
+
+    /**
+     * Class Constructor.
+     */
+    public function __construct()
+    {
+        $this->createdAt = new DateTime();
+        $this->updatedAt = new DateTime();
+    }
 
     /**
      * Get id.
@@ -59,5 +90,67 @@ class Item
     public function getValue(): string
     {
         return $this->value;
+    }
+
+    /**
+     * Set createdAt.
+     *
+     * @return Item
+     */
+    public function setCreatedAt(DateTime $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Get createdAt.
+     */
+    public function getCreatedAt(): DateTime
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * Set updatedAt.
+     *
+     * @return Item
+     */
+    public function setUpdatedAt(DateTime $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get updatedAt.
+     */
+    public function getUpdatedAt(): DateTime
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * Set deletedAt.
+     *
+     * @param null|DateTime $deletedAt
+     *
+     * @return Item
+     */
+    public function setDeletedAt($deletedAt): self
+    {
+        $this->deletedAt = $deletedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get deletedAt.
+     */
+    public function getDeletedAt(): ?DateTime
+    {
+        return $this->deletedAt;
     }
 }
