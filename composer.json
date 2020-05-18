@@ -35,7 +35,6 @@
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.16",
-        "laravel/homestead": "^10.7",
         "squizlabs/php_codesniffer": "^3.5",
         "symfony/maker-bundle": "^1.14",
         "symfony/test-pack": "^1.0"
