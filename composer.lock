@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "85ea4c5293047c4c4d185ca1dbda9846",
+    "content-hash": "fa6b7ccdfd2248a8294694b5d58addad",
     "packages": [
         {
             "name": "brick/math",
@@ -57,6 +57,54 @@
                 }
             ],
             "time": "2020-04-15T15:59:35+00:00"
+        },
+        {
+            "name": "clivern/metric",
+            "version": "0.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Clivern/Metric.git",
+                "reference": "7b2866357b01ccff46fd8618f1dd62cdca343039"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Clivern/Metric/zipball/7b2866357b01ccff46fd8618f1dd62cdca343039",
+                "reference": "7b2866357b01ccff46fd8618f1dd62cdca343039",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.5",
+                "php": ">=7.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.16",
+                "phpunit/phpunit": "^5.7",
+                "squizlabs/php_codesniffer": "^3.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Clivern\\Metric\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Clivern",
+                    "email": "hello@clivern.com",
+                    "homepage": "http://clivern.com"
+                }
+            ],
+            "description": "Metrics Collector SDK in PHP.",
+            "homepage": "https://github.com/clivern/metric",
+            "keywords": [
+                "clivern",
+                "metric"
+            ],
+            "time": "2020-02-09T16:46:27+00:00"
         },
         {
             "name": "doctrine/annotations",
