@@ -17,8 +17,6 @@ use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * Home Controller.
- *
- * @Before(namespace="namespace1", version=1, types={"json","xml"})
  */
 class HomeController extends AbstractController
 {
@@ -35,7 +33,6 @@ class HomeController extends AbstractController
 
     /**
      * @Route("/", name="app.index")
-     * @Before(namespace="namespace2", version=2, types={"json","xml"})
      */
     public function index(Request $request)
     {
