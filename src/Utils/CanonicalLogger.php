@@ -33,8 +33,6 @@ class CanonicalLogger
     /**
      * System is unusable.
      *
-     * @param string $message
-     *
      * @return void
      */
     public function emergency(string $action, array $flags = [])
@@ -48,8 +46,6 @@ class CanonicalLogger
     /**
      * Action must be taken immediately.
      *
-     * @param string $message
-     *
      * @return void
      */
     public function alert(string $action, array $flags = [])
@@ -62,8 +58,6 @@ class CanonicalLogger
 
     /**
      * Critical conditions.
-     *
-     * @param string $message
      *
      * @return void
      */
@@ -79,8 +73,6 @@ class CanonicalLogger
      * Runtime errors that do not require immediate action but should typically
      * be logged and monitored.
      *
-     * @param string $message
-     *
      * @return void
      */
     public function error(string $action, array $flags = [])
@@ -93,8 +85,6 @@ class CanonicalLogger
 
     /**
      * Exceptional occurrences that are not errors.
-     *
-     * @param string $message
      *
      * @return void
      */
@@ -109,8 +99,6 @@ class CanonicalLogger
     /**
      * Normal but significant events.
      *
-     * @param string $message
-     *
      * @return void
      */
     public function notice(string $action, array $flags = [])
@@ -123,8 +111,6 @@ class CanonicalLogger
 
     /**
      * Interesting events.
-     *
-     * @param string $message
      *
      * @return void
      */
@@ -139,8 +125,6 @@ class CanonicalLogger
     /**
      * Detailed debug information.
      *
-     * @param string $message
-     *
      * @return void
      */
     public function debug(string $action, array $flags = [])
@@ -154,8 +138,7 @@ class CanonicalLogger
     /**
      * Logs with an arbitrary level.
      *
-     * @param mixed  $level
-     * @param string $message
+     * @param mixed $level
      *
      * @return void
      */
