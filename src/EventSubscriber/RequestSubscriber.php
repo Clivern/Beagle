@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace App\EventSubscriber;
 
+use App\Utils\CanonicalLogger;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Event\RequestEvent;
@@ -22,12 +23,18 @@ class RequestSubscriber implements EventSubscriberInterface
     /** @var LoggerInterface */
     private $logger;
 
+    /** @var CanonicalLogger */
+    private $canonicalLogger;
+
     /**
      * Class Constructor.
      */
-    public function __construct(LoggerInterface $logger)
-    {
+    public function __construct(
+        LoggerInterface $logger,
+        CanonicalLogger $canonicalLogger
+    ) {
         $this->logger = $logger;
+        $this->canonicalLogger = $canonicalLogger;
     }
 
     /**
@@ -41,6 +48,12 @@ class RequestSubscriber implements EventSubscriberInterface
             $event->getRequest()->get('_route'),
             $event->getRequest()->getUri()
         ));
+
+        $this->canonicalLogger->info('Request started', [
+            'http_method' => $event->getRequest()->getMethod(),
+            'http_path' => $event->getRequest()->getUri(),
+            'http_route' => $event->getRequest()->get('_route'),
+        ]);
     }
 
     /**
