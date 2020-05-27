@@ -4,7 +4,7 @@
     <p align="center">Symfony Applications Boilerplate.</p>
     <p align="center">
         <a href="https://travis-ci.com/Clivern/Beagle"><img src="https://travis-ci.com/Clivern/Beagle.svg?branch=master"></a>
-        <a href="https://github.com/Clivern/Beagle/releases"><img src="https://img.shields.io/badge/Version-0.1.0-red.svg"></a>
+        <a href="https://github.com/Clivern/Beagle/releases"><img src="https://img.shields.io/badge/Version-1.0.0-red.svg"></a>
         <a href="https://github.com/Clivern/Beagle/blob/master/LICENSE"><img src="https://img.shields.io/badge/LICENSE-MIT-orange.svg"></a>
     </p>
 </p>
