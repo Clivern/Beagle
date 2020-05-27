@@ -36,3 +36,4 @@ pull_request_rules:
     conditions:
       - merged
     name: "Merge Done 🚀"
+
