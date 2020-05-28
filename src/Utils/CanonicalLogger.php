@@ -151,7 +151,7 @@ class CanonicalLogger
     }
 
     /**
-     * Format logs to be cononical.
+     * Format logs to be canonical.
      *
      * @return string
      */
