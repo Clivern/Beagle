@@ -87,6 +87,9 @@
     "egulias/email-validator": {
         "version": "2.1.17"
     },
+    "endclothing/prometheus_client_php": {
+        "version": "1.0.1"
+    },
     "friendsofphp/php-cs-fixer": {
         "version": "2.2",
         "recipe": {
@@ -352,6 +355,9 @@
             "phpunit.xml.dist",
             "tests/bootstrap.php"
         ]
+    },
+    "symfony/polyfill-apcu": {
+        "version": "v1.17.0"
     },
     "symfony/polyfill-intl-icu": {
         "version": "v1.17.0"
