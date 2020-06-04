@@ -84,7 +84,7 @@
     "extra": {
         "symfony": {
             "allow-contrib": false,
-            "require": "5.0.*",
+            "require": "5.1.*",
             "id": "01E3SRAHTPW3X4K07NJMFFZ0H2"
         }
     }
