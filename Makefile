@@ -1,7 +1,10 @@
+include .env.test
 COMPOSER ?= composer
 PHPUNIT_OPTS =
 SYMFONY = symfony
 PHP = php
+
+export APP_ENV
 
 
 help: Makefile
@@ -13,7 +16,7 @@ help: Makefile
 
 
 config:
-	cp .env.dist .env
+	cp .env.test .env
 
 
 composer: config
@@ -38,12 +41,11 @@ clear_db:
 
 migrate:
 	@echo "\n==> Migrate DB Tables"
-	export APP_ENV=test
 	$(PHP) bin/console doctrine:schema:update --force
 
 
 test: cc composer clear_db migrate
-	bin/phpunit -c . $(PHPUNIT_OPTS) --log-junit build/phpunit.xml
+	bin/phpunit -c . $(PHPUNIT_OPTS) --log-junit build/phpunit.xml --coverage-text
 
 
 lint: cc lint-yaml lint-twig lint-php phpcs php-cs lint-composer lint-eol
