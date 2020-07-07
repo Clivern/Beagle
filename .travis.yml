@@ -7,9 +7,6 @@ php:
     - 7.3
     - 7.4
 
-services:
-  - redis-server
-
 matrix:
   include:
   allow_failures:
@@ -20,12 +17,6 @@ matrix:
 cache:
   directories:
     - $HOME/.composer/cache
-
-before_install:
-  - sudo apt-get update
-  - sudo apt-get install -y php-redis
-  - echo "extension=redis.so" >> $(php --ini | grep Loaded | cut -d" " -f12)
-  - php -ini
 
 before_script:
   - travis_retry composer self-update
