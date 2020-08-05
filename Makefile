@@ -4,6 +4,7 @@ PHPUNIT_OPTS =
 SYMFONY = symfony
 PHP = php
 
+
 export APP_ENV
 
 
@@ -15,11 +16,7 @@ help: Makefile
 	@echo
 
 
-config:
-	cp .env.dist .env.test
-
-
-composer: config
+composer:
 	$(COMPOSER) install
 
 
@@ -101,7 +98,7 @@ fix:
 
 
 ## ci: Run CI Checks
-ci: clear composer lint test
+ci: config clear composer lint test
 	@echo "All quality checks passed"
 
 

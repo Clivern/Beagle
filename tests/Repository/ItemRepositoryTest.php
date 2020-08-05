@@ -68,8 +68,7 @@ class ItemRepositoryTest extends KernelTestCase
         $itemId = $this->itemRepository->insertOne(['value' => '~value~']);
         $item = $this->itemRepository->getOneById($itemId);
 
-        $this->assertSame($itemId, 1);
-        $this->assertSame($item->getId(), 1);
+        $this->assertSame($item->getId(), $itemId);
         $this->assertSame($item->getValue(), '~value~');
 
         $this->assertTrue(!empty($item->getCreatedAt()));
