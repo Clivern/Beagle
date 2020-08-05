@@ -7,8 +7,16 @@ framework:
             # https://symfony.com/doc/current/messenger.html#transport-configuration
             # async: '%env(MESSENGER_TRANSPORT_DSN)%'
             # failed: 'doctrine://default?queue_name=failed'
-            # sync: 'sync://'
+            sync: 'sync://'
+
+            async_normal:
+                dsn: "%env(MESSENGER_TRANSPORT_DSN)%"
+                options:
+                    table_name: async_jobs
+                    queue_name: normal_priority
 
         routing:
             # Route your messages to the transports
+            # 'App\Message\YourMessage': sync
             # 'App\Message\YourMessage': async
+            'App\Message\SmsNotification':  async_normal

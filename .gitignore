@@ -24,6 +24,7 @@
 ###< app testing ###
 
 /.env
+/.env.dev
 ###> squizlabs/php_codesniffer ###
 /.phpcs-cache
 /phpcs.xml

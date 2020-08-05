@@ -16,7 +16,7 @@ help: Makefile
 
 
 config:
-	cp .env.test .env
+	cp .env.dist .env.test
 
 
 composer: config
