@@ -2,9 +2,6 @@
     "brick/math": {
         "version": "0.8.15"
     },
-    "clivern/metric": {
-        "version": "0.0.1"
-    },
     "composer/semver": {
         "version": "1.5.1"
     },
