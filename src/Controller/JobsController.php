@@ -17,6 +17,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Messenger\MessageBusInterface;
+use Symfony\Component\Messenger\Stamp\DelayStamp;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -61,6 +62,10 @@ class JobsController extends AbstractController
         $data = $request->getContent();
 
         $this->messageBus->dispatch(new SmsNotification('Hello World!'));
+
+        $this->messageBus->dispatch(new SmsNotification('Hello World After 5 Seconds!'), [
+            new DelayStamp(5000),
+        ]);
 
         return $this->json([], Response::HTTP_CREATED);
     }
