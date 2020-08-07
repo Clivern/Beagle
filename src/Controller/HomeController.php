@@ -31,7 +31,7 @@ class HomeController extends AbstractController
     }
 
     /**
-     * @Route("/", name="app.index")
+     * @Route("", name="app.index")
      */
     public function index(Request $request)
     {

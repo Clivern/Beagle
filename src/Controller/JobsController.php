@@ -55,7 +55,7 @@ class JobsController extends AbstractController
     }
 
     /**
-     * @Route("/", methods={"POST"}, name="job.createAction")
+     * @Route("", methods={"POST"}, name="job.createAction")
      */
     public function createAction(Request $request)
     {

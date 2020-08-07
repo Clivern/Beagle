@@ -61,7 +61,7 @@ class ItemController extends AbstractController
     }
 
     /**
-     * @Route("/", methods={"GET"}, name="item.listAction")
+     * @Route("", methods={"GET"}, name="item.listAction")
      */
     public function listAction(Request $request)
     {
@@ -72,7 +72,7 @@ class ItemController extends AbstractController
     }
 
     /**
-     * @Route("/", methods={"POST"}, name="item.createAction")
+     * @Route("", methods={"POST"}, name="item.createAction")
      */
     public function createAction(Request $request)
     {
