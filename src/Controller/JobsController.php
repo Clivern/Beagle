@@ -9,7 +9,7 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-use App\Message\SmsNotification;
+use App\Message\Task;
 use App\Module\Validator;
 use App\Utils\Config;
 use Psr\Log\LoggerInterface;
@@ -61,9 +61,9 @@ class JobsController extends AbstractController
     {
         $data = $request->getContent();
 
-        $this->messageBus->dispatch(new SmsNotification('Hello World!'));
+        $this->messageBus->dispatch(new Task('Hello World!'));
 
-        $this->messageBus->dispatch(new SmsNotification('Hello World After 5 Seconds!'), [
+        $this->messageBus->dispatch(new Task('Hello World After 5 Seconds!'), [
             new DelayStamp(5000),
         ]);
 

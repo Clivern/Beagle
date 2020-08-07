@@ -9,19 +9,19 @@ declare(strict_types=1);
 
 namespace App\MessageHandler;
 
-use App\Message\SmsNotification;
+use App\Message\Task;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 
 /**
- * Class SmsNotificationHandler.
+ * Class TaskHandler.
  */
-class SmsNotificationHandler implements MessageHandlerInterface
+class TaskHandler implements MessageHandlerInterface
 {
     /**
      * {@inheritdoc}
      */
-    public function __invoke(SmsNotification $message)
+    public function __invoke(Task $task)
     {
-        var_dump($message->getContent());
+        var_dump($task->getPayload());
     }
 }
