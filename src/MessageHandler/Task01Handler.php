@@ -7,31 +7,23 @@ declare(strict_types=1);
  * (c) Clivern <hello@clivern.com>
  */
 
-namespace App\Controller;
+namespace App\MessageHandler;
 
 use App\Message\Task01;
-use App\Module\Validator;
+use App\Message\Task02;
 use App\Utils\Config;
 use Psr\Log\LoggerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Messenger\Stamp\DelayStamp;
-use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * Job Controller.
- *
- * @Route("/api/v1/job")
+ * Class Task01Handler.
  */
-class JobsController extends AbstractController
+class Task01Handler implements MessageHandlerInterface
 {
     /** @var LoggerInterface */
     private $logger;
-
-    /** @var Validator */
-    private $validator;
 
     /** @var MessageBusInterface */
     private $messageBus;
@@ -44,29 +36,24 @@ class JobsController extends AbstractController
      */
     public function __construct(
         LoggerInterface $logger,
-        Validator $validator,
         Config $config,
         MessageBusInterface $messageBus
     ) {
         $this->logger = $logger;
-        $this->validator = $validator;
         $this->messageBus = $messageBus;
         $this->config = $config;
     }
 
     /**
-     * @Route("", methods={"POST"}, name="job.createAction")
+     * {@inheritdoc}
      */
-    public function createAction(Request $request)
+    public function __invoke(Task01 $task)
     {
-        $data = $request->getContent();
+        var_dump($task->getPayload());
 
-        $this->messageBus->dispatch(new Task01('Hello World!'));
-
-        $this->messageBus->dispatch(new Task01('Hello World After 5 Seconds!'), [
+        $this->messageBus->dispatch(new Task02('Hey Task2!'));
+        $this->messageBus->dispatch(new Task02('Hey Task2 After 5 Seconds!'), [
             new DelayStamp(5000),
         ]);
-
-        return $this->json([], Response::HTTP_CREATED);
     }
 }

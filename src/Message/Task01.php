@@ -12,7 +12,7 @@ namespace App\Message;
 /**
  * Class Task.
  */
-class Task
+class Task01
 {
     private $payload;
 

@@ -19,4 +19,5 @@ framework:
             # Route your messages to the transports
             # 'App\Message\YourMessage': sync
             # 'App\Message\YourMessage': async
-            'App\Message\Task':  async_normal
+            'App\Message\Task01':  async_normal
+            'App\Message\Task02':  async_normal
