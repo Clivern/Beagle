@@ -35,13 +35,13 @@ class JobService
      * Class Constructor.
      */
     public function __construct(
-        LoggerInterface $logger,
         JobRepository $jobRepository,
+        LoggerInterface $logger,
         MessageBusInterface $messageBus
     ) {
         $this->jobRepository = $jobRepository;
-        $this->messageBus = $messageBus;
         $this->logger = $logger;
+        $this->messageBus = $messageBus;
     }
 
     /**

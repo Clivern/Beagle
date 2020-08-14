@@ -14,9 +14,9 @@ use App\Utils\Config;
 use Psr\Log\LoggerInterface;
 
 /**
- * Class TestHandler.
+ * Class TestHandler2.
  */
-class TestHandler implements AsyncHandler
+class TestHandler2 implements AsyncHandler
 {
     /** @var LoggerInterface */
     private $logger;

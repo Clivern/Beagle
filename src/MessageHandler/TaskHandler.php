@@ -14,7 +14,7 @@ use App\Exception\ServerError;
 use App\Message\Task;
 use Exception;
 use Psr\Log\LoggerInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\DependencyInjection\ServiceLocator;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 
 /**
@@ -28,18 +28,18 @@ class TaskHandler implements MessageHandlerInterface
     /** @var LoggerInterface */
     private $logger;
 
-    /** @var ContainerInterface */
-    private $container;
+    /** @var ServiceLocator */
+    private $serviceLocator;
 
     /**
      * Class Constructor.
      */
     public function __construct(
         LoggerInterface $logger,
-        ContainerInterface $container
+        ServiceLocator $serviceLocator
     ) {
         $this->logger = $logger;
-        $this->container = $container;
+        $this->serviceLocator = $serviceLocator;
     }
 
     /**
@@ -49,7 +49,7 @@ class TaskHandler implements MessageHandlerInterface
     {
         $handler = $task->getPayload()[self::HANDLER_KEY];
 
-        if (!$this->container->has($handler) || !($this->container->get($handler) instanceof AsyncHandler)) {
+        if (!$this->serviceLocator->has($handler) || !($this->serviceLocator->get($handler) instanceof AsyncHandler)) {
             $this->logger->error(sprintf(
                 'Error! Task failed due to Invalid AsyncHandler %s: %s',
                 $handler,
@@ -66,7 +66,7 @@ class TaskHandler implements MessageHandlerInterface
         ));
 
         try {
-            $result = $this->container->get($handler)->__invoke($task->getPayload());
+            $result = $this->serviceLocator->get($handler)->__invoke($task->getPayload());
         } catch (Exception $e) {
             $this->logger->error(sprintf(
                 'Task with AsyncHandler %s and payload %s failed: %s',

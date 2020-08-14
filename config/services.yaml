@@ -29,8 +29,15 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+    app.async_handler_locator:
+        class: Symfony\Component\DependencyInjection\ServiceLocator
+        arguments:
+            -
+                - '@App\AsyncHandler\TestHandler1'
+                - '@App\AsyncHandler\TestHandler2'
 
-    # @TODO Use service locators
-    app.async_handler.test_handler:
-        class: App\AsyncHandler\TestHandler
-        public: true
+    App\MessageHandler\TaskHandler:
+        class: App\MessageHandler\TaskHandler
+        arguments:
+            - '@monolog.logger'
+            - '@app.async_handler_locator'

@@ -60,12 +60,12 @@ class JobsController extends AbstractController
         $data = $request->getContent();
 
         $this->async->dispatch(
-            'app.async_handler.test_handler',
+            'App\AsyncHandler\TestHandler1',
             ['key' => 'hey']
         );
 
         $this->async->dispatch(
-            'app.async_handler.test_handler',
+            'App\AsyncHandler\TestHandler2',
             ['key' => 'hey after 5 sec'],
             5000
         );
