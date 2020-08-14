@@ -35,47 +35,7 @@ class MessengerSubscriber implements EventSubscriberInterface
         $this->logger = $logger;
     }
 
-    public function onWorkerMessageFailedEvent(WorkerMessageFailedEvent $event)
-    {
-        $this->logger->info(sprintf(
-            'Event triggered %s',
-            \get_class($event)
-        ));
-    }
-
     public function onWorkerStartedEvent(WorkerStartedEvent $event)
-    {
-        $this->logger->info(sprintf(
-            'Event triggered %s',
-            \get_class($event)
-        ));
-    }
-
-    public function onWorkerMessageReceivedEvent(WorkerMessageReceivedEvent $event)
-    {
-        $this->logger->info(sprintf(
-            'Event triggered %s',
-            \get_class($event)
-        ));
-    }
-
-    public function onSendMessageToTransportsEvent(SendMessageToTransportsEvent $event)
-    {
-        $this->logger->info(sprintf(
-            'Event triggered %s',
-            \get_class($event)
-        ));
-    }
-
-    public function onWorkerMessageHandledEvent(WorkerMessageHandledEvent $event)
-    {
-        $this->logger->info(sprintf(
-            'Event triggered %s',
-            \get_class($event)
-        ));
-    }
-
-    public function onWorkerRunningEvent(WorkerRunningEvent $event)
     {
         $this->logger->info(sprintf(
             'Event triggered %s',
@@ -89,6 +49,63 @@ class MessengerSubscriber implements EventSubscriberInterface
             'Event triggered %s',
             \get_class($event)
         ));
+    }
+
+    public function onWorkerMessageReceivedEvent(WorkerMessageReceivedEvent $event)
+    {
+        // Message Reached Worker
+        // ----------------------
+        // var_dump($event->getEnvelope()->getMessage());
+        // die();
+
+        $this->logger->info(sprintf(
+            'Event triggered %s',
+            \get_class($event)
+        ));
+    }
+
+    public function onSendMessageToTransportsEvent(SendMessageToTransportsEvent $event)
+    {
+        // Message Sent to Workers
+        // -----------------------
+        // var_dump($event->getEnvelope()->getMessage());
+        // die();
+
+        $this->logger->info(sprintf(
+            'Event triggered %s',
+            \get_class($event)
+        ));
+    }
+
+    public function onWorkerMessageHandledEvent(WorkerMessageHandledEvent $event)
+    {
+        // Message Success
+        // ---------------
+        // var_dump($event->getEnvelope()->getMessage());
+        // die();
+
+        $this->logger->info(sprintf(
+            'Event triggered %s',
+            \get_class($event)
+        ));
+    }
+
+    public function onWorkerMessageFailedEvent(WorkerMessageFailedEvent $event)
+    {
+        // Message Failure
+        // ---------------
+        // var_dump($event->getEnvelope()->getMessage());
+        // die();
+
+        $this->logger->info(sprintf(
+            'Event triggered %s',
+            \get_class($event)
+        ));
+    }
+
+    public function onWorkerRunningEvent(WorkerRunningEvent $event)
+    {
+        //~
     }
 
     /**

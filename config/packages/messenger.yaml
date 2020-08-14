@@ -15,6 +15,16 @@ framework:
                     table_name: async_jobs
                     queue_name: normal_priority
 
+                # default configuration
+                retry_strategy:
+                    max_retries: 3
+                    # milliseconds delay
+                    delay: 1000
+                    # causes the delay to be higher before each retry
+                    # e.g. 1 second delay, 2 seconds, 4 seconds
+                    multiplier: 2
+                    max_delay: 0
+
         routing:
             # Route your messages to the transports
             # 'App\Message\YourMessage': sync
