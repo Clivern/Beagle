@@ -9,15 +9,13 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-use App\Message\Task01;
 use App\Module\Validator;
+use App\Service\JobService;
 use App\Utils\Config;
 use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Messenger\MessageBusInterface;
-use Symfony\Component\Messenger\Stamp\DelayStamp;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -33,8 +31,8 @@ class JobsController extends AbstractController
     /** @var Validator */
     private $validator;
 
-    /** @var MessageBusInterface */
-    private $messageBus;
+    /** @var JobService */
+    private $async;
 
     /** @var Config */
     private $config;
@@ -46,11 +44,11 @@ class JobsController extends AbstractController
         LoggerInterface $logger,
         Validator $validator,
         Config $config,
-        MessageBusInterface $messageBus
+        JobService $async
     ) {
         $this->logger = $logger;
         $this->validator = $validator;
-        $this->messageBus = $messageBus;
+        $this->async = $async;
         $this->config = $config;
     }
 
@@ -61,11 +59,16 @@ class JobsController extends AbstractController
     {
         $data = $request->getContent();
 
-        $this->messageBus->dispatch(new Task01('Hello World!'));
+        $this->async->dispatch(
+            'app.async_handler.test_handler',
+            ['key' => 'hey']
+        );
 
-        $this->messageBus->dispatch(new Task01('Hello World After 5 Seconds!'), [
-            new DelayStamp(5000),
-        ]);
+        $this->async->dispatch(
+            'app.async_handler.test_handler',
+            ['key' => 'hey after 5 sec'],
+            5000
+        );
 
         return $this->json([], Response::HTTP_CREATED);
     }

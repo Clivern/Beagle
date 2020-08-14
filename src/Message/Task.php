@@ -12,16 +12,16 @@ namespace App\Message;
 /**
  * Class Task.
  */
-class Task01
+class Task
 {
     private $payload;
 
-    public function __construct(string $payload)
+    public function __construct(array $payload)
     {
         $this->payload = $payload;
     }
 
-    public function getPayload(): string
+    public function getPayload(): array
     {
         return $this->payload;
     }

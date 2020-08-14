@@ -7,24 +7,19 @@ declare(strict_types=1);
  * (c) Clivern <hello@clivern.com>
  */
 
-namespace App\MessageHandler;
+namespace App\AsyncHandler;
 
-use App\Message\Task02;
+use App\Contract\AsyncHandler;
 use App\Utils\Config;
 use Psr\Log\LoggerInterface;
-use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
-use Symfony\Component\Messenger\MessageBusInterface;
 
 /**
- * Class Task02Handler.
+ * Class TestHandler.
  */
-class Task02Handler implements MessageHandlerInterface
+class TestHandler implements AsyncHandler
 {
     /** @var LoggerInterface */
     private $logger;
-
-    /** @var MessageBusInterface */
-    private $messageBus;
 
     /** @var Config */
     private $config;
@@ -34,19 +29,18 @@ class Task02Handler implements MessageHandlerInterface
      */
     public function __construct(
         LoggerInterface $logger,
-        Config $config,
-        MessageBusInterface $messageBus
+        Config $config
     ) {
         $this->logger = $logger;
-        $this->messageBus = $messageBus;
         $this->config = $config;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function __invoke(Task02 $task)
+    public function __invoke(array $args)
     {
-        var_dump($task->getPayload());
+        var_dump(static::class);
+        var_dump(json_encode($args));
     }
 }
