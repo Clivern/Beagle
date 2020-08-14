@@ -93,7 +93,11 @@ class TaskHandler implements MessageHandlerInterface
         ));
 
         try {
-            $result = $this->serviceLocator->get($handler)->invoke($task->getPayload())->callback();
+            $obj = $this->serviceLocator->get($handler);
+            $obj->invoke($task->getPayload());
+
+            // Trigger onSuccess
+            $obj->onSuccess();
         } catch (Exception $e) {
             $this->logger->error(sprintf(
                 'Task with AsyncHandler %s and payload %s failed: %s',
@@ -101,6 +105,9 @@ class TaskHandler implements MessageHandlerInterface
                 json_encode($task->getPayload()),
                 $e->getMessage()
             ));
+
+            // Trigger onFailure
+            $obj->onFailure();
 
             $this->updateJobStatus(
                 $jobId,
@@ -116,7 +123,7 @@ class TaskHandler implements MessageHandlerInterface
             Job::SUCCEED
         );
 
-        return $result;
+        return true;
     }
 
     /**

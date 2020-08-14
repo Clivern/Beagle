@@ -22,5 +22,10 @@ interface AsyncHandler
     /**
      * Triggered if job succeeded.
      */
-    public function callback();
+    public function onSuccess();
+
+    /**
+     * Triggered if job failed.
+     */
+    public function onFailure();
 }

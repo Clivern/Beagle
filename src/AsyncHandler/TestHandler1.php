@@ -47,15 +47,28 @@ class TestHandler1 implements AsyncHandler
         var_dump(static::class);
         var_dump(json_encode($args));
 
+        $this->args['instance.scope.var'] = 'something';
+
         return $this;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function callback()
+    public function onSuccess()
     {
+        // $this->args["instance.scope.var"] available here
         var_dump($this->args);
-        var_dump('Flush');
+        var_dump('Yay!');
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function onFailure()
+    {
+        // $this->args["instance.scope.var"] available here
+        var_dump($this->args);
+        var_dump('Cleanup!');
     }
 }

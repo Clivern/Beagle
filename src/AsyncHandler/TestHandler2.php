@@ -44,8 +44,15 @@ class TestHandler2 implements AsyncHandler
     public function invoke(array $args): AsyncHandler
     {
         $this->args = $args;
+
         var_dump(static::class);
         var_dump(json_encode($args));
+
+        $this->args['instance.scope.var'] = 'something';
+
+        // If job failed, throw an exception with a user friendly error message
+        // messenger will retry (check config/packages/messenger.yaml)
+        throw new \Exception('Something Bad Happened');
 
         return $this;
     }
@@ -53,9 +60,20 @@ class TestHandler2 implements AsyncHandler
     /**
      * {@inheritdoc}
      */
-    public function callback()
+    public function onSuccess()
     {
+        // $this->args["instance.scope.var"] available here
         var_dump($this->args);
-        var_dump('Flush');
+        var_dump('Yay!');
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function onFailure()
+    {
+        // $this->args["instance.scope.var"] available here
+        var_dump($this->args);
+        var_dump('Cleanup!');
     }
 }
