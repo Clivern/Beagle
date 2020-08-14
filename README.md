@@ -1,10 +1,10 @@
 <p align="center">
-    <img alt="Beagle Logo" src="https://raw.githubusercontent.com/clivern/Beagle/master/public/assets/images/logo.png?v=2.0.0" width="150" />
+    <img alt="Beagle Logo" src="https://raw.githubusercontent.com/clivern/Beagle/master/public/assets/images/logo.png?v=2.2.0" width="150" />
     <h3 align="center">Beagle</h3>
     <p align="center">Symfony Applications Boilerplate.</p>
     <p align="center">
         <a href="https://travis-ci.com/Clivern/Beagle"><img src="https://travis-ci.com/Clivern/Beagle.svg?branch=master"></a>
-        <a href="https://github.com/Clivern/Beagle/releases"><img src="https://img.shields.io/badge/Version-2.0.0-red.svg"></a>
+        <a href="https://github.com/Clivern/Beagle/releases"><img src="https://img.shields.io/badge/Version-2.2.0-red.svg"></a>
         <a href="https://github.com/Clivern/Beagle/blob/master/LICENSE"><img src="https://img.shields.io/badge/LICENSE-MIT-orange.svg"></a>
     </p>
 </p>
