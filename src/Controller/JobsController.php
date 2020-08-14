@@ -59,12 +59,12 @@ class JobsController extends AbstractController
     {
         $data = $request->getContent();
 
-        var_dump($this->asyncJob->dispatchOne(
+        var_dump($this->asyncJob->dispatch(
             'App\AsyncHandler\TestHandler1',
             ['key' => 'hey']
         ));
 
-        var_dump($this->asyncJob->dispatchOne(
+        var_dump($this->asyncJob->dispatch(
             'App\AsyncHandler\TestHandler2',
             ['key' => 'hey after 5 sec'],
             5000

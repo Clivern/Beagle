@@ -52,7 +52,7 @@ class TestHandler2 implements AsyncHandler
 
         // If job failed, throw an exception with a user friendly error message
         // messenger will retry (check config/packages/messenger.yaml)
-        throw new \Exception('Something Bad Happened');
+        // throw new \Exception('Something Bad Happened');
 
         return $this;
     }

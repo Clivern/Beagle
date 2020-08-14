@@ -53,7 +53,7 @@ class JobService
     /**
      * Dispatch Async Job.
      */
-    public function dispatchOne(string $handler, array $args, int $time = 0): Job
+    public function dispatch(string $handler, array $args, int $time = 0): Job
     {
         $now = new DateTime('NOW', new DateTimeZone($this->config->get('APP_TIMEZONE', 'UTC')));
         $args[TaskHandler::HANDLER_KEY] = $handler;
