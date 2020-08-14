@@ -32,7 +32,7 @@ class JobsController extends AbstractController
     private $validator;
 
     /** @var JobService */
-    private $async;
+    private $asyncJob;
 
     /** @var Config */
     private $config;
@@ -44,11 +44,11 @@ class JobsController extends AbstractController
         LoggerInterface $logger,
         Validator $validator,
         Config $config,
-        JobService $async
+        JobService $asyncJob
     ) {
         $this->logger = $logger;
         $this->validator = $validator;
-        $this->async = $async;
+        $this->asyncJob = $asyncJob;
         $this->config = $config;
     }
 
@@ -59,16 +59,16 @@ class JobsController extends AbstractController
     {
         $data = $request->getContent();
 
-        $this->async->dispatch(
+        var_dump($this->asyncJob->dispatchOne(
             'App\AsyncHandler\TestHandler1',
             ['key' => 'hey']
-        );
+        ));
 
-        $this->async->dispatch(
+        var_dump($this->asyncJob->dispatchOne(
             'App\AsyncHandler\TestHandler2',
             ['key' => 'hey after 5 sec'],
             5000
-        );
+        ));
 
         return $this->json([], Response::HTTP_CREATED);
     }

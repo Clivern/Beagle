@@ -41,3 +41,4 @@ services:
         arguments:
             - '@monolog.logger'
             - '@app.async_handler_locator'
+            - '@App\Repository\JobRepository'

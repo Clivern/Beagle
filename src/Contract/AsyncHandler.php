@@ -17,5 +17,10 @@ interface AsyncHandler
     /**
      * Execute Handler.
      */
-    public function __invoke(array $args);
+    public function invoke(array $args): self;
+
+    /**
+     * Triggered if job succeeded.
+     */
+    public function callback();
 }

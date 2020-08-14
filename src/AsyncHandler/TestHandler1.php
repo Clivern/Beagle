@@ -24,6 +24,9 @@ class TestHandler1 implements AsyncHandler
     /** @var Config */
     private $config;
 
+    /** @var array */
+    private $args;
+
     /**
      * Class Constructor.
      */
@@ -38,9 +41,21 @@ class TestHandler1 implements AsyncHandler
     /**
      * {@inheritdoc}
      */
-    public function __invoke(array $args)
+    public function invoke(array $args): AsyncHandler
     {
+        $this->args = $args;
         var_dump(static::class);
         var_dump(json_encode($args));
+
+        return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function callback()
+    {
+        var_dump($this->args);
+        var_dump('Flush');
     }
 }
