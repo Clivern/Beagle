@@ -24,8 +24,8 @@ class JobRepository extends ServiceEntityRepository
      */
     public function __construct(ManagerRegistry $registry, LoggerInterface $logger)
     {
-        $this->logger = $logger;
         parent::__construct($registry, Job::class);
+        $this->logger = $logger;
     }
 
     /**

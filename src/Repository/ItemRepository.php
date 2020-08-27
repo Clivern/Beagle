@@ -25,8 +25,8 @@ class ItemRepository extends ServiceEntityRepository
      */
     public function __construct(ManagerRegistry $registry, LoggerInterface $logger)
     {
-        $this->logger = $logger;
         parent::__construct($registry, Item::class);
+        $this->logger = $logger;
     }
 
     /**
