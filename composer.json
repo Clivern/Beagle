@@ -18,7 +18,7 @@
         "justinrainbow/json-schema": "^5.2",
         "php-amqplib/php-amqplib": "^2.11",
         "ramsey/uuid": "^4.0",
-        "sensio/framework-extra-bundle": "^5.5",
+        "sensio/framework-extra-bundle": "^6.0",
         "symfony/asset": "5.1.*",
         "symfony/console": "5.1.*",
         "symfony/doctrine-messenger": "5.1.*",
