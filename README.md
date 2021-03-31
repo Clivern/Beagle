@@ -3,8 +3,8 @@
     <h3 align="center">Beagle</h3>
     <p align="center">Symfony Applications Boilerplate.</p>
     <p align="center">
-        <a href="https://travis-ci.com/Clivern/Beagle"><img src="https://travis-ci.com/Clivern/Beagle.svg?branch=main"></a>
-        <a href="https://github.com/Clivern/Beagle/releases"><img src="https://img.shields.io/badge/Version-2.2.1-red.svg"></a>
+        <a href="https://github.com/Clivern/Beagle/actions"><img src="https://github.com/Clivern/Beagle/actions/workflows/php.yml/badge.svg"></a> 
+        <a href="https://github.com/Clivern/Beagle/releases"><img src="https://img.shields.io/badge/Version-3.0.0-blue.svg"></a>
         <a href="https://github.com/Clivern/Beagle/blob/main/LICENSE"><img src="https://img.shields.io/badge/LICENSE-MIT-orange.svg"></a>
     </p>
 </p>
