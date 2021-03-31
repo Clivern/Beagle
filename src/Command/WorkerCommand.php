@@ -48,6 +48,8 @@ class WorkerCommand extends Command
                 getmypid(),
                 (new \DateTime())->format('c')
             ));
+
+            sleep(2);
         }
     }
 }
