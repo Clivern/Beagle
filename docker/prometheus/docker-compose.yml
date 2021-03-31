@@ -13,7 +13,7 @@ services:
 
     # Prometheus Service
     prometheus:
-        image: 'prom/prometheus:v2.23.0'
+        image: 'prom/prometheus:v2.26.0'
         volumes:
             - './:/etc/prometheus'
         command: '--config.file=/etc/prometheus/prometheus.yml'
@@ -23,7 +23,7 @@ services:
 
     # Grafana Service
     grafana:
-        image: 'grafana/grafana:6.7.4'
+        image: 'grafana/grafana:6.7.6'
         environment:
             - GF_SECURITY_ADMIN_USER=${ADMIN_USER:-admin}
             - GF_SECURITY_ADMIN_PASSWORD=${ADMIN_PASSWORD:-admin}
