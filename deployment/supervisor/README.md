@@ -43,4 +43,4 @@ autorestart=true
 process_name=%(program_name)s_%(process_num)02d
 ```
 
-[Monitoring Processes with Supervisord]](https://serversforhackers.com/c/monitoring-processes-with-supervisord)
+[Monitoring Processes with Supervisord](https://serversforhackers.com/c/monitoring-processes-with-supervisord)
