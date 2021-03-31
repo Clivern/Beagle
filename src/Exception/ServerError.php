@@ -46,7 +46,7 @@ class ServerError extends BaseException
             'Exception \'%s\' triggered with error code %s:%s%s',
             static::class,
             $this->getErrorCode(),
-            PHP_EOL,
+            \PHP_EOL,
             parent::__toString()
         );
     }

@@ -22,7 +22,7 @@ class Config
      */
     public function __construct()
     {
-        $this->configs = array_change_key_case($_ENV, CASE_LOWER);
+        $this->configs = array_change_key_case($_ENV, \CASE_LOWER);
     }
 
     /**
