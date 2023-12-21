@@ -1,0 +1,456 @@
+repo_name: Clivern/Beagle
+report_id: b6220888bc5f0aaad42333b5531f56ee
+version: 0.1
+repo_type: Public
+timestamp: '2023-12-21T15:21:50+00:00'
+requested_by: renovate[bot]
+provider: github
+branch: main
+detected_tools_count: 35
+tools:
+- name: PHP
+  description: A popular general-purpose scripting language that is especially suited
+    to web development
+  website_url: http://www.php.net/
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/991/hwUcGZ41_400x400.jpg
+  detection_source: Repo Metadata
+- name: Guzzle
+  description: PHP HTTP client that makes it easy to send HTTP requests and trivial
+    to integrate with web services
+  website_url: http://guzzlephp.org/
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Microframeworks (Backend)
+  image_url: https://img.stackshare.io/service/2350/638632.png
+  detection_source: composer.json
+  last_updated_by: Clivern
+  last_updated_on: 2020-03-19 16:54:31.000000000 Z
+- name: Symfony
+  description: A PHP full-stack web framework
+  website_url: http://symfony.com/
+  version: 5.2.6
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Frameworks (Full Stack)
+  image_url: https://img.stackshare.io/service/1197/logosf_positif_03_icon.png
+  detection_source_url: https://github.com/Clivern/Beagle/blob/main/composer.lock
+  detection_source: composer.json
+  last_updated_by: renovate[bot]
+  last_updated_on: 2021-04-01 12:37:48.000000000 Z
+- name: Redis
+  description: Open source (BSD licensed), in-memory data structure store
+  website_url: http://redis.io/
+  license: BSD-3-Clause
+  open_source: true
+  hosted_saas: false
+  category: Data Stores
+  sub_category: In-Memory Databases
+  image_url: https://img.stackshare.io/service/1031/default_cbce472cd134adc6688572f999e9122b9657d4ba.png
+  detection_source: docker/prometheus/docker-compose.yml
+  last_updated_by: renovate[bot]
+  last_updated_on: 2022-05-31 22:31:15.000000000 Z
+- name: Git
+  description: Fast, scalable, distributed revision control system
+  website_url: http://git-scm.com/
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Version Control System
+  image_url: https://img.stackshare.io/service/1046/git.png
+  detection_source: Repo Metadata
+- name: GitHub Actions
+  description: Automate your workflow from idea to production
+  website_url: https://github.com/features/actions
+  open_source: false
+  hosted_saas: true
+  category: Build, Test, Deploy
+  sub_category: Continuous Integration
+  image_url: https://img.stackshare.io/service/11563/actions.png
+  detection_source: ".github/workflows/php.yml"
+  last_updated_by: Clivern
+  last_updated_on: 2021-03-31 18:09:18.000000000 Z
+- name: Grafana
+  description: Open source Graphite &amp; InfluxDB Dashboard and Graph Editor
+  website_url: http://grafana.org/
+  license: AGPL-3.0
+  open_source: true
+  hosted_saas: false
+  category: Monitoring
+  sub_category: Monitoring Tools
+  image_url: https://img.stackshare.io/service/2645/default_8f9d552b144493679449b16c79647da5787e808b.jpg
+  detection_source: docker/prometheus/docker-compose.yml
+  last_updated_by: renovate[bot]
+  last_updated_on: 2022-07-15 14:02:42.000000000 Z
+- name: Prometheus
+  description: An open-source service monitoring system and time series database,
+    developed by SoundCloud
+  website_url: http://prometheus.io/
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Monitoring
+  sub_category: Monitoring Tools
+  image_url: https://img.stackshare.io/service/2501/default_3cf1b307194b26782be5cb209d30360580ae5b3c.png
+  detection_source: docker/prometheus/docker-compose.yml
+  last_updated_by: renovate[bot]
+  last_updated_on: 2022-07-15 14:02:29.000000000 Z
+- name: Travis CI
+  description: A hosted continuous integration service for open source and private
+    projects
+  website_url: http://travis-ci.com/
+  open_source: false
+  hosted_saas: true
+  category: Build, Test, Deploy
+  sub_category: Continuous Integration
+  image_url: https://img.stackshare.io/service/460/Lu6cGu0z_400x400.png
+  detection_source: ".travis.yml"
+  last_updated_by: Clivern
+  last_updated_on: 2020-03-19 21:48:40.000000000 Z
+- name: Alpine Linux
+  description: Security-oriented, lightweight Linux distribution based on musl libc
+    and busybox
+  website_url: https://www.alpinelinux.org/
+  open_source: false
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Operating Systems
+  image_url: https://img.stackshare.io/service/6429/alpine_linux.png
+  detection_source: docker/prometheus/docker-compose.yml
+  last_updated_by: renovate[bot]
+  last_updated_on: 2022-05-31 22:31:15.000000000 Z
+- name: friendsofphp/php-cs-fixer
+  description: A tool to automatically fix PHP code style
+  package_url: https://packagist.org/friendsofphp/php-cs-fixer
+  version: 2.18.4
+  open_source: false
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Package Managers
+  image_url: https://img.stackshare.io/package/packagist/image.png
+  detection_source_url: https://github.com/Clivern/Beagle/blob/main/composer.lock
+  detection_source: composer.json
+  last_updated_by: Clivern
+  last_updated_on: 2020-05-07 21:12:51.000000000 Z
+- name: guzzlehttp/guzzle
+  description: Guzzle is a PHP HTTP client library
+  package_url: https://packagist.org/guzzlehttp/guzzle
+  version: 6.5.5
+  open_source: false
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Package Managers
+  image_url: https://img.stackshare.io/package/packagist/image.png
+  detection_source_url: https://github.com/Clivern/Beagle/blob/main/composer.lock
+  detection_source: composer.json
+  last_updated_by: renovate[bot]
+  last_updated_on: 2021-04-01 12:37:48.000000000 Z
+- name: justinrainbow/json-schema
+  description: A library to validate a json schema
+  package_url: https://packagist.org/justinrainbow/json-schema
+  version: 5.2.10
+  open_source: false
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Package Managers
+  image_url: https://img.stackshare.io/package/packagist/image.png
+  detection_source_url: https://github.com/Clivern/Beagle/blob/main/composer.lock
+  detection_source: composer.json
+  last_updated_by: Clivern
+  last_updated_on: 2020-03-19 16:01:32.000000000 Z
+- name: php-amqplib/php-amqplib
+  description: Formerly videlalvaro/php-amqplib
+  package_url: https://packagist.org/php-amqplib/php-amqplib
+  version: 2.12.3
+  open_source: false
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Package Managers
+  image_url: https://img.stackshare.io/package/packagist/image.png
+  detection_source_url: https://github.com/Clivern/Beagle/blob/main/composer.lock
+  detection_source: composer.json
+  last_updated_by: Clivern
+  last_updated_on: 2020-05-07 21:12:51.000000000 Z
+- name: ramsey/uuid
+  description: A PHP library for generating and working with universally unique identifiers
+  package_url: https://packagist.org/ramsey/uuid
+  version: 4.1.1
+  open_source: false
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Package Managers
+  image_url: https://img.stackshare.io/package/packagist/image.png
+  detection_source_url: https://github.com/Clivern/Beagle/blob/main/composer.lock
+  detection_source: composer.json
+  last_updated_by: Clivern
+  last_updated_on: 2020-04-04 13:56:57.000000000 Z
+- name: sensio/framework-extra-bundle
+  description: This bundle provides a way to configure your controllers with annotations
+  package_url: https://packagist.org/sensio/framework-extra-bundle
+  version: 5.6.1
+  open_source: false
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Package Managers
+  image_url: https://img.stackshare.io/package/packagist/image.png
+  detection_source_url: https://github.com/Clivern/Beagle/blob/main/composer.lock
+  detection_source: composer.json
+  last_updated_by: renovate[bot]
+  last_updated_on: 2021-04-01 12:37:48.000000000 Z
+- name: squizlabs/php_codesniffer
+  description: PHP_CodeSniffer tokenizes PHP
+  package_url: https://packagist.org/squizlabs/php_codesniffer
+  version: 3.5.8
+  open_source: false
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Package Managers
+  image_url: https://img.stackshare.io/package/packagist/image.png
+  detection_source_url: https://github.com/Clivern/Beagle/blob/main/composer.lock
+  detection_source: composer.json
+  last_updated_by: Clivern
+  last_updated_on: 2020-05-07 21:12:51.000000000 Z
+- name: symfony/asset
+  description: Manages URL generation and versioning of web assets such as CSS stylesheets
+  package_url: https://packagist.org/symfony/asset
+  version: 5.2.4
+  open_source: false
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Package Managers
+  image_url: https://img.stackshare.io/package/packagist/image.png
+  detection_source_url: https://github.com/Clivern/Beagle/blob/main/composer.lock
+  detection_source: composer.json
+  last_updated_by: renovate[bot]
+  last_updated_on: 2021-04-01 12:37:48.000000000 Z
+- name: symfony/console
+  description: Eases the creation of beautiful and testable command line interfaces
+  package_url: https://packagist.org/symfony/console
+  version: 5.2.6
+  open_source: false
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Package Managers
+  image_url: https://img.stackshare.io/package/packagist/image.png
+  detection_source_url: https://github.com/Clivern/Beagle/blob/main/composer.lock
+  detection_source: composer.json
+  last_updated_by: renovate[bot]
+  last_updated_on: 2021-04-01 12:37:48.000000000 Z
+- name: symfony/dotenv
+  description: Registers environment variables from a .env file
+  package_url: https://packagist.org/symfony/dotenv
+  version: 5.2.4
+  open_source: false
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Package Managers
+  image_url: https://img.stackshare.io/package/packagist/image.png
+  detection_source_url: https://github.com/Clivern/Beagle/blob/main/composer.lock
+  detection_source: composer.json
+  last_updated_by: renovate[bot]
+  last_updated_on: 2021-04-01 12:37:48.000000000 Z
+- name: symfony/flex
+  description: Composer plugin for Symfony
+  package_url: https://packagist.org/symfony/flex
+  version: 1.12.2
+  open_source: false
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Package Managers
+  image_url: https://img.stackshare.io/package/packagist/image.png
+  detection_source_url: https://github.com/Clivern/Beagle/blob/main/composer.lock
+  detection_source: composer.json
+  last_updated_by: renovate[bot]
+  last_updated_on: 2021-04-01 12:37:48.000000000 Z
+- name: symfony/form
+  description: Allows to easily create, process and reuse HTML forms
+  package_url: https://packagist.org/symfony/form
+  version: 5.2.6
+  open_source: false
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Package Managers
+  image_url: https://img.stackshare.io/package/packagist/image.png
+  detection_source_url: https://github.com/Clivern/Beagle/blob/main/composer.lock
+  detection_source: composer.json
+  last_updated_by: renovate[bot]
+  last_updated_on: 2021-04-01 12:37:48.000000000 Z
+- name: symfony/framework-bundle
+  description: Provides a tight integration between Symfony components and the Symfony
+    full-stack framework
+  package_url: https://packagist.org/symfony/framework-bundle
+  version: 5.2.6
+  open_source: false
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Package Managers
+  image_url: https://img.stackshare.io/package/packagist/image.png
+  detection_source_url: https://github.com/Clivern/Beagle/blob/main/composer.lock
+  detection_source: composer.json
+  last_updated_by: renovate[bot]
+  last_updated_on: 2021-04-01 12:37:48.000000000 Z
+- name: symfony/http-client
+  description: Provides powerful methods to fetch HTTP resources synchronously or
+    asynchronously
+  package_url: https://packagist.org/symfony/http-client
+  version: 5.2.6
+  open_source: false
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Package Managers
+  image_url: https://img.stackshare.io/package/packagist/image.png
+  detection_source_url: https://github.com/Clivern/Beagle/blob/main/composer.lock
+  detection_source: composer.json
+  last_updated_by: renovate[bot]
+  last_updated_on: 2021-04-01 12:37:48.000000000 Z
+- name: symfony/maker-bundle
+  description: Symfony Maker helps you create empty commands
+  package_url: https://packagist.org/symfony/maker-bundle
+  version: 1.30.2
+  open_source: false
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Package Managers
+  image_url: https://img.stackshare.io/package/packagist/image.png
+  detection_source_url: https://github.com/Clivern/Beagle/blob/main/composer.lock
+  detection_source: composer.json
+  last_updated_by: renovate[bot]
+  last_updated_on: 2021-04-01 12:37:48.000000000 Z
+- name: symfony/messenger
+  description: Helps applications send and receive messages to/from other applications
+    or via message queues
+  package_url: https://packagist.org/symfony/messenger
+  version: 5.2.5
+  open_source: false
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Package Managers
+  image_url: https://img.stackshare.io/package/packagist/image.png
+  detection_source_url: https://github.com/Clivern/Beagle/blob/main/composer.lock
+  detection_source: composer.json
+  last_updated_by: renovate[bot]
+  last_updated_on: 2021-04-01 12:37:48.000000000 Z
+- name: symfony/monolog-bundle
+  description: Symfony MonologBundle
+  package_url: https://packagist.org/symfony/monolog-bundle
+  version: 3.7.0
+  open_source: false
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Package Managers
+  image_url: https://img.stackshare.io/package/packagist/image.png
+  detection_source_url: https://github.com/Clivern/Beagle/blob/main/composer.lock
+  detection_source: composer.json
+  last_updated_by: renovate[bot]
+  last_updated_on: 2021-04-01 12:37:48.000000000 Z
+- name: symfony/orm-pack
+  description: A pack for the Doctrine ORM
+  package_url: https://packagist.org/symfony/orm-pack
+  version: 2.1.0
+  open_source: false
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Package Managers
+  image_url: https://img.stackshare.io/package/packagist/image.png
+  detection_source_url: https://github.com/Clivern/Beagle/blob/main/composer.lock
+  detection_source: composer.json
+  last_updated_by: renovate[bot]
+  last_updated_on: 2021-04-01 12:37:48.000000000 Z
+- name: symfony/security-csrf
+  description: Symfony Security Component - CSRF Library
+  package_url: https://packagist.org/symfony/security-csrf
+  version: 5.2.4
+  open_source: false
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Package Managers
+  image_url: https://img.stackshare.io/package/packagist/image.png
+  detection_source_url: https://github.com/Clivern/Beagle/blob/main/composer.lock
+  detection_source: composer.json
+  last_updated_by: renovate[bot]
+  last_updated_on: 2021-04-01 12:37:48.000000000 Z
+- name: symfony/serializer
+  description: Handles serializing and deserializing data structures
+  package_url: https://packagist.org/symfony/serializer
+  version: 5.2.4
+  open_source: false
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Package Managers
+  image_url: https://img.stackshare.io/package/packagist/image.png
+  detection_source_url: https://github.com/Clivern/Beagle/blob/main/composer.lock
+  detection_source: composer.json
+  last_updated_by: renovate[bot]
+  last_updated_on: 2021-04-01 12:37:48.000000000 Z
+- name: symfony/serializer-pack
+  description: A pack for the Symfony serializer
+  package_url: https://packagist.org/symfony/serializer-pack
+  version: 1.0.4
+  open_source: false
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Package Managers
+  image_url: https://img.stackshare.io/package/packagist/image.png
+  detection_source_url: https://github.com/Clivern/Beagle/blob/main/composer.lock
+  detection_source: composer.json
+  last_updated_by: renovate[bot]
+  last_updated_on: 2021-04-01 12:37:48.000000000 Z
+- name: symfony/swiftmailer-bundle
+  description: Symfony SwiftmailerBundle
+  package_url: https://packagist.org/symfony/swiftmailer-bundle
+  version: 3.5.2
+  open_source: false
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Package Managers
+  image_url: https://img.stackshare.io/package/packagist/image.png
+  detection_source_url: https://github.com/Clivern/Beagle/blob/main/composer.lock
+  detection_source: composer.json
+  last_updated_by: renovate[bot]
+  last_updated_on: 2021-04-01 12:37:48.000000000 Z
+- name: symfony/test-pack
+  description: A pack for functional and end-to-end testing within a Symfony app
+  package_url: https://packagist.org/symfony/test-pack
+  version: 1.0.7
+  open_source: false
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Package Managers
+  image_url: https://img.stackshare.io/package/packagist/image.png
+  detection_source_url: https://github.com/Clivern/Beagle/blob/main/composer.lock
+  detection_source: composer.json
+  last_updated_by: renovate[bot]
+  last_updated_on: 2021-04-01 12:37:48.000000000 Z
+- name: symfony/twig-bundle
+  description: Provides a tight integration of Twig into the Symfony full-stack framework
+  package_url: https://packagist.org/symfony/twig-bundle
+  version: 5.2.4
+  open_source: false
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Package Managers
+  image_url: https://img.stackshare.io/package/packagist/image.png
+  detection_source_url: https://github.com/Clivern/Beagle/blob/main/composer.lock
+  detection_source: composer.json
+  last_updated_by: renovate[bot]
+  last_updated_on: 2021-04-01 12:37:48.000000000 Z
+- name: symfony/yaml
+  description: Loads and dumps YAML files
+  package_url: https://packagist.org/symfony/yaml
+  version: 5.2.5
+  open_source: false
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Package Managers
+  image_url: https://img.stackshare.io/package/packagist/image.png
+  detection_source_url: https://github.com/Clivern/Beagle/blob/main/composer.lock
+  detection_source: composer.json
+  last_updated_by: renovate[bot]
+  last_updated_on: 2021-04-01 12:37:48.000000000 Z
