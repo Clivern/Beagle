@@ -15,7 +15,7 @@
         "ext-iconv": "*",
         "clivern/chunk": "^1.2",
         "guzzlehttp/guzzle": "^6.5",
-        "justinrainbow/json-schema": "^5.2",
+        "justinrainbow/json-schema": "^6.0",
         "php-amqplib/php-amqplib": "^2.11",
         "ramsey/uuid": "^4.0",
         "sensio/framework-extra-bundle": "^5.5",
